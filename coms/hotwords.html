@@ -1,0 +1,14 @@
+<div class="info">
+    鼠标拖拽调整热词顺序，搜索框默认展示第一个热词，其他搜索词将以标签形式显示在搜索页中 <a>查看示例</a>
+</div>
+<div class="hotwords">
+    <list>
+        <padding ng-repeat="(w,i) in hotwords" class="item">
+            <input ng-model=hotwords[i] />
+            <icon class="remove" ng-click="hotwords.splice(i,1)">×</icon>
+        </padding>
+    </list>
+    <padding>
+        <btn type="white" ng-click="hotwords.push('')">+添加热词</btn>
+    </padding>
+</div>

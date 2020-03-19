@@ -1,0 +1,13 @@
+<div class="title">
+    页面配置：
+</div>
+<div class="body">
+    <field ng-repeat="f in fields">
+        <div>
+            <span ng-bind="f.name"></span>
+        </div>
+        <div>
+            <model _data=data _field=f> </model>
+        </div>
+    </field>
+</div>

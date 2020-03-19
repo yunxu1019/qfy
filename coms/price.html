@@ -1,0 +1,11 @@
+<div>
+    <div ng-repeat="p in prices">
+        <span ng-bind=p></span>
+        <icon class="remove"></icon>
+    </div>
+</div>
+
+<div class="option">
+    <input ng-model=value[0] /> <span>~</span> <input ng-model=value[1] />
+    <btn ng-click=add()>确认</btn>
+</div>

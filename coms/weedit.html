@@ -1,0 +1,19 @@
+<div class="title">
+    <a>微页面</a><span>/</span><span>编辑页面</span>
+    <hr />
+</div>
+<div class="body">
+    <div class="left">
+        <mobile class="mobile">
+            <com ng-src=b ng-repeat="b in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
+        </mobile>
+        <div class="toolpad">
+            <div class="head">基础组件：</div>
+            <btn type=grey ng-click="addBlock(c)" ng-repeat="c in coms">
+                <span ng-bind="c.name"></span>
+            </btn>
+        </div>
+    </div>
+    <div class="right" elementid=right>
+    </div>
+</div>

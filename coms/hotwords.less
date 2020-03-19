@@ -1,0 +1,49 @@
+icon {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 2em;
+    vertical-align: middle;
+
+    &.remove {
+        &:hover {
+            color: #f24;
+        }
+
+        &:active {
+            color: #824;
+        }
+    }
+}
+
+.info {
+    white-space: normal;
+    padding-top: 10px;
+    color: #999;
+    line-height: 1.5;
+}
+
+list {
+    display: block;
+
+    >.item {
+
+        icon {
+            margin-left: -.8em;
+        }
+    }
+}
+
+padding {
+    width: auto;
+    display: block;
+    line-height: 20px;
+    border-width: 10px 0;
+    width: 100%;
+}
+
+.button {
+    border: 1px dashed #e5e5e5;
+    padding: 0 4px;
+    width: 100%;
+    box-shadow: none;
+}

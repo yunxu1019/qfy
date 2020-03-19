@@ -1,0 +1,104 @@
+& {
+    padding: 14px;
+
+}
+
+.body>div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.title {
+    display: block;
+
+    >span,
+    >a {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 16px;
+        line-height: 32px;
+    }
+}
+
+.mobile {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 375px;
+    height: 667px;
+
+    com {
+        position: relative;
+        display: block;
+        min-height: 10px;
+
+        >after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    }
+}
+
+.toolpad {
+    line-height: 38px;
+
+    btn {
+        width: 109px;
+        height: 28px;
+        line-height: 28px;
+        box-shadow: none;
+        margin-right: 11px;
+    }
+
+    .head {
+        line-height: 40px;
+    }
+
+    border:1px solid #ccc;
+    width: 375px;
+    padding: 0 0 0 12px;
+}
+
+.slider {
+    background: #ccc;
+}
+
+com>after {
+    border: 2px dashed transparent;
+
+    x {
+        display: inline-block;
+        opacity: 1;
+        padding: 1px 3px 2px 2px;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: top;
+    }
+}
+
+com:hover {
+    >after {
+        border-color: #f69;
+        opacity: .8;
+
+        x {
+            background: #f69;
+            color: #fff;
+        }
+    }
+}
+
+com.activate {
+    >after {
+        border-color: #409EFF;
+
+        x {
+            background: #409EFF;
+            color: #fff;
+        }
+    }
+}
