@@ -1,0 +1,1 @@
+function b(){return a.documentElement.clientHeight||a.body&&a.body.clientHeight}var a=this.document;return b.toString=function(){return this().toString()},b.valueOf=function(){return this()},b

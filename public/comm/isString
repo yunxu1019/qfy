@@ -1,0 +1,1 @@
+00gString,bvar a=function a(c){return typeof c==='string'||c instanceof b};return a

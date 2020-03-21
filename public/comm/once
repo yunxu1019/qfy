@@ -1,0 +1,1 @@
+01gon,isFunction,isNode,c,d,efunction b(b){return a[b]?a[b]:a[b]=function(d,e){var a=c(b)(d,function(b){return a(),e.call(this,b)});return a}}function f(a,c,f){return d(f)&&e(c)?b(a)(c,f):b(a)}var a={};return f

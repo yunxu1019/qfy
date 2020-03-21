@@ -1,0 +1,32 @@
+grid {
+    background: #F1F8FF;
+    width: 318px;
+    height: 318px;
+    margin: 16px 0;
+    border: 2px solid #fff;
+
+    >cell {
+        border: 2px solid #fff;
+        white-space: normal;
+
+        &:hover {
+            border-color: #ccc;
+        }
+
+        &:active,
+        &.activate {
+            border-color: #409eff;
+        }
+    }
+}
+
+.msg {
+    color: #999;
+    padding: 0 0 10px 0;
+    font-size: 12px;
+    line-height: 1;
+}
+
+a {
+    color: #409eff;
+}

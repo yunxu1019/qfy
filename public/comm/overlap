@@ -1,0 +1,1 @@
+024isElement,getScreenPosition,Math,a,b,cfunction g(c,e){a(c)&&(c=b(c)),a(e)&&(e=b(e));var f=d(c.left,c.width,e.left,e.width),g=d(c.top,c.height,e.top,e.height);return f>0&&g>0?f*g:0}function d(g,a,h,b){var c=g+a/2,d=h+b/2;return e(a,b,(a+b)/2-f(c-d))}var e=c.min,f=c.abs;return g

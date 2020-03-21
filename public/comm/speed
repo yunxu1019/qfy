@@ -1,0 +1,1 @@
+00cDate,afunction b(c){c===void 0&&(c=1);var d=new a,b=0;return function(e){if(arguments.length){var g=new a,f=g-d;f&&(d=g,e?b=b?(b+e*c/f)/2:e*c/f:e===0&&(b=0))}return b}}return b

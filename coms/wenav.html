@@ -1,0 +1,16 @@
+<div class="head">
+    图文导航：
+</div>
+<div class="body">
+    <div class="info">添加图片：最多添加5张图片，鼠标拖拽调整广告顺序</div>
+    <vbox>
+        <padding ng-repeat="m in goods">
+            <wepic ng-src=m></wepic>
+        </padding>
+    </vbox>
+    <padding>
+        <btn type=white ng-click="add()">
+            +添加商品分组
+        </btn>
+    </padding>
+</div>

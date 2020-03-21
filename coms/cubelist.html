@@ -1,0 +1,6 @@
+<padding ng-repeat="(g,i) in grids">
+    <btn ng-click="setGrid(g,i)" ng-class="{activate:data[field.key]===i}">
+        <grid _editable=false ng-src=g.data></grid>
+        <div ng-bind=g.name></div>
+    </btn>
+</padding>

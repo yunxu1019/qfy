@@ -77,17 +77,27 @@ com>after {
         font-size: 16px;
         line-height: 16px;
         vertical-align: top;
+
+        &.close {
+            right: 0;
+            cursor: pointer;
+            display: none;
+        }
     }
 }
 
 com:hover {
     >after {
-        border-color: #f69;
+        border-color: #0004;
         opacity: .8;
 
         x {
-            background: #f69;
+            background: #0004;
             color: #fff;
+
+            &.close {
+                display: inline-block;
+            }
         }
     }
 }
@@ -99,6 +109,15 @@ com.activate {
         x {
             background: #409EFF;
             color: #fff;
+
+            &.close {
+                display: inline-block;
+            }
         }
     }
+}
+
+.info {
+    color: #999;
+    padding: 10px 16px;
 }

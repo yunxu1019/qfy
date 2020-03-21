@@ -1,0 +1,1 @@
+020setTimeout,requestAnimationFrame,a,bfunction c(d,c){return function e(){if(arguments.length)return d.apply(this,arguments);if(e.ing)return e.ing=!0;c=+c;var f=function(){e.ing===!0&&d(),e.ing=!1};c>0?(a(f,c),e.ing=!0):(e.ing=b(f),c===!1||c===0?e.ing=!0:d())}}return c

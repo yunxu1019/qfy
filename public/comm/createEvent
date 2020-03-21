@@ -1,0 +1,1 @@
+00kdocument,avar b='createEvent'in a?function b(f,c,d){c===void 0&&(c=!1),d===void 0&&(d=!0);var e=a.createEvent('Event');return e.initEvent(f,c,d),e}:function b(d){var c=a.createEventObject();return c.type=d,c};return b

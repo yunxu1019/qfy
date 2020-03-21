@@ -1,0 +1,1 @@
+024document,Promise,on,setTimeout,a,b,c,dfunction e(g,i){var e=a.createElement('form');e.innerHTML=(g?'<input type=\'file\''+(' accept="'+g+'"'):'<input type=\'file\'')+(i?' multiple':'')+' />';var f=e.children[0],h=new b(function(a,b){c('change')(f,function(){var b=this;d(function(){a(b.files)},100)})});return f.click(),h}return e

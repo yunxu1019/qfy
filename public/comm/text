@@ -1,0 +1,1 @@
+01aisFunction,document,a,bfunction c(c,d){return arguments.length===2&&(c.innerHTML='',a(d)&&(d=d()),a(c.setText)?c.setText(d):c.appendChild(b.createTextNode(d))),a(c.getText)?c.getText():c.innerText}return c

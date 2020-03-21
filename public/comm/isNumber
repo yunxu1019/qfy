@@ -1,0 +1,1 @@
+00gNumber,afunction b(b){return typeof b==='number'||b instanceof a}return b

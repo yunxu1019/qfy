@@ -1,0 +1,1 @@
+01sencodeURIComponent,undefined,a,bfunction c(f,c,d){c===void 0&&(c='&'),d===void 0&&(d='=');var g=[],h=c==='&'&&d==='='?a:function(a){return a};for(var e in f)f[e]!==b&&g.push(h(e)+d+h(f[e]));return g.join(c)}return c

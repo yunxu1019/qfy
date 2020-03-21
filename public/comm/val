@@ -1,0 +1,1 @@
+012isFunction,text,b,cfunction d(d,e){if(!d)return;if(!(arguments.length===2))return b(d.val)?d.val():a.test(d.tagName)?d.value:c(d);b(d.val)?d.val(e):a.test(d.tagName)?d.value=e:c(d,e)}var a=/^(input|textarea|select)$/i;return d

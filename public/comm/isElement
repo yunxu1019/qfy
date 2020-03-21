@@ -1,0 +1,1 @@
+00gisNode,afunction b(b){return!!(a(b)&&b.children)}return b

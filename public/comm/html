@@ -1,0 +1,1 @@
+function a(a,b){return arguments.length==2&&(a.innerHTML=b),a.innerHTML}return a

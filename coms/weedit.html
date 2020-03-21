@@ -5,7 +5,7 @@
 <div class="body">
     <div class="left">
         <mobile class="mobile">
-            <com ng-src=b ng-repeat="b in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
+            <com ng-src=b ng-delete=remove(i) ng-repeat="(b,i) in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
         </mobile>
         <div class="toolpad">
             <div class="head">基础组件：</div>

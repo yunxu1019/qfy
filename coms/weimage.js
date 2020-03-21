@@ -3,6 +3,7 @@ function main() {
     page.innerHTML = weimage;
     render(page, {
         wepic,
+        padding,
         data: {},
     });
     return page;

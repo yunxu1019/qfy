@@ -26,12 +26,18 @@ function main() {
             vbox(e);
             return e;
         },
+        remove(i) {
+            this.blocks.splice(i, 1);
+        },
         com(c) {
             care(c, function (component) {
                 var com = component.com();
                 remove(c.children);
                 var after = document.createElement('after');
-                after.innerHTML = `<x>${component.name}</x>`;
+                after.innerHTML = `<x>${component.name}</x><x ng-click="dispatch(this.parentNode.parentNode,'delete')" class="close">×</x>`;
+                render(after, {
+                    dispatch
+                });
                 appendChild(c, com, after);
             });
         },
@@ -54,10 +60,12 @@ function main() {
             {
                 name: "图片导航",
                 com: slider,
+                config: wenav,
             },
             {
                 name: "魔方",
                 com: slider,
+                config: wecube,
             },
             {
                 name: "商品",
@@ -81,6 +89,6 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[2]);
+    $scope.addBlock($scope.coms[4]);
     return page;
 }

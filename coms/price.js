@@ -16,6 +16,5 @@ function main() {
             this.value = ['', ''];
         }
     });
-    console.log(page);
     return page;
 }

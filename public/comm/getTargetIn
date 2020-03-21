@@ -1,0 +1,1 @@
+01sisFunction,isNode,isFinite,a,b,cfunction d(d,e,h){if(!a(d)&&b(d)){var g=d;h!==!1?d=function(a){return a===g}:d=function(a){return a.parentNode===g}}while(e){var f=d(e);if(f)return c(f)?e:f;e=e.parentNode}return null}return d

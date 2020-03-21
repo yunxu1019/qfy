@@ -1,0 +1,1 @@
+01sdecodeURIComponent,undefined,b,cfunction a(k,e,f){e===void 0&&(e='&'),f===void 0&&(f='=');var h={},i=e==='&'&&f==='='?b:function(a){return a};if(typeof k==='string'){var j=k.split(e);for(var g=0,l=j.length;g<l;g++){var a=j[g];if(!a)continue;var d=a.indexOf(f);d<0&&(d=a.length),h[i(a.slice(0,d))]=d===a.length?c:i(a.slice(d+1))}}return h}var a=a;return a

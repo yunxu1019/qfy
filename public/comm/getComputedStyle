@@ -1,0 +1,1 @@
+00gwindow,areturn a.getComputedStyle||function a(b){return b.currentStyle}

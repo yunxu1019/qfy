@@ -1,0 +1,66 @@
+grid {
+    display: block;
+    height: 70px;
+    @border-color: #fff;
+    border: 2px solid @border-color;
+    background: #F1F8FF;
+    width: 100%;
+
+    >cell {
+        border: 2px solid @border-color;
+    }
+}
+
+btn {
+    display: block;
+    color: #333;
+
+    >.track {
+        background: none;
+        z-index: 1;
+        opacity: 1;
+        box-shadow: none;
+    }
+
+    &.hover {
+
+        >.track {
+            background: none;
+            box-shadow: none;
+            opacity: 1;
+            border: 1px solid #ccc;
+        }
+    }
+
+    &.active,
+    &.activate {
+        color: #409eff;
+        >.track {
+            border: 1.0px solid #409EFF;
+        }
+    }
+}
+
+.padding {
+    width: 111px;
+    position: relative;
+    display: inline-block;
+    border-width: 6px 16px 6px 0;
+}
+
+grid+div {
+    width: 100%;
+    height: 25px;
+    display: block;
+    background: #fff;
+    line-height: 25px;
+    text-align: center;
+}
+
+
+
+& {
+    white-space: normal;
+    padding-right: 0;
+    margin-right: -16px;
+}
