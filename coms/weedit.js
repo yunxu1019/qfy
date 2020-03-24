@@ -92,6 +92,7 @@ function main() {
             {
                 name: "富文本",
                 com: slider,
+                config: richtext,
             },
             {
                 name: "热区",
@@ -100,6 +101,6 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[9]);
+    $scope.addBlock($scope.coms[8]);
     return page;
 }
