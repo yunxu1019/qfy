@@ -6,6 +6,7 @@ function main() {
         btn: button,
         blocks: [],
         active(b) {
+            if (!~this.blocks.indexOf(b)) return;
             if (this.blocks.active === b) {
                 this.blocks.active = null;
                 var pg = weconfig;
@@ -32,6 +33,9 @@ function main() {
             return e;
         },
         remove(i) {
+            if (this.blocks.active === this.blocks[i]) {
+                this.active(this.blocks[i]);
+            }
             this.blocks.splice(i, 1);
         },
         com(c) {
