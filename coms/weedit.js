@@ -17,6 +17,11 @@ function main() {
             if (pg) appendChild(this.right, pg());
         },
         addBlock(c) {
+            if (!c.com) {
+                alert(`${c.name}暂不可用！`);
+                return;
+            }
+
             var block = extend({}, c);
             this.blocks.push(block);
             this.active(block);
@@ -39,7 +44,7 @@ function main() {
                     dispatch
                 });
                 appendChild(c, com, after);
-            });
+            }, false);
         },
         coms: [
             {
@@ -70,14 +75,15 @@ function main() {
             {
                 name: "商品",
                 com: slider,
+                config: wegoods,
             },
             {
                 name: "商品分区",
-                com: slider,
             },
             {
                 name: "文本",
                 com: slider,
+                config: wetext
             },
             {
                 name: "富文本",
@@ -86,9 +92,10 @@ function main() {
             {
                 name: "热区",
                 com: slider,
+                config: welink,
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[4]);
+    $scope.addBlock($scope.coms[9]);
     return page;
 }

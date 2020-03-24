@@ -1,0 +1,13 @@
+<div class="head">
+    商品：
+</div>
+<div class="body">
+    <field ng-repeat="f in fields" ng-src=[f,data]></field>
+    <field class="goods-box">
+        <div class="head">商品</div>
+        <div class="body">
+            <div class="goods" ng-style="{backgroundImage:m.imageurl}" ng-repeat="m in goods"></div>
+            <div class="plus" ng-click=addImage()>＋</div>
+        </div>
+    </field>
+</div>

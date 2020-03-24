@@ -1,0 +1,30 @@
+<div class="head">
+    热区编辑器:
+</div>
+<div class="body">
+    <div class="steps">
+        <span ng-repeat="(s,i) in steps">
+            <span ng-bind="i+1"></span>
+            <span ng-bind="s"></span>
+        </span>
+    </div>
+    <rects>
+        <div ng-class="{activate:_rects.active===r}" ng-click="_rects.active=r" ng-repeat="r in _rects"
+            ng-style="r.style" rect>
+        </div>
+    </rects>
+    <pic ng-class={drawing:drawing} elementid="image" uploadto="/@/data/"></pic>
+    <field ng-if="_rects.active">
+        <div>热区链接</div>
+        <div>
+            <model _data=_rects.active _field=field1 >
+            </model>
+        </div>
+    </field>
+</div>
+<div class="foot">
+    <btn disabled_="!image.hasInstance" ng-click="addRect()">
+        添加热区
+    </btn>
+    <btn disabled_="!image.hasInstance||drawing" type=white>保存</btn>
+</div>

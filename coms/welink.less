@@ -1,0 +1,94 @@
+& {
+    width: 434px;
+}
+
+>.body {
+    padding: 10px 0 10px 20px !important;
+}
+
+.steps {
+    padding: 10px 0;
+
+    >span {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 12px;
+        color: #333;
+        margin-right: 10px;
+
+        >span:nth-child(1) {
+            display: inline-block;
+            margin-right: 4px;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            line-height: 18px;
+            text-align: center;
+        }
+    }
+}
+
+>.body>.image {
+
+    width: 394px;
+    height: 394px;
+
+    line-height: 394px;
+    display: block;
+    background-color: #ccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+
+    &.drawing {
+        cursor: crosshair;
+    }
+}
+
+wepic{
+    display: block;
+    width: auto;
+    margin-right: 20px;
+}
+rects {
+    width: 394px;
+    height: 394px;
+    margin-bottom: -394px;
+    display: block;
+    line-height: 0;
+    position: relative;
+}
+
+[rect] {
+    position: absolute;
+    z-index: 1;
+    border: 2px solid #409EFF;
+    background-color: #409EFF99;
+    box-sizing: border-box;
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -9px;
+        top: -9px;
+        right: -9px;
+        bottom: -9px;
+    }
+
+    &:hover {
+        z-index: 2;
+        background-color: #409EFF66;
+    }
+    &:active {
+        background-color: #409EFFcc;
+    }
+    &.activate {
+        background-color: #FF226666;
+        border-color: #FF2266cc;
+    }
+    
+
+}

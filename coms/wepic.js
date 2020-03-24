@@ -1,8 +1,7 @@
 function main(elem) {
     care(elem, function (data) {
         elem.innerHTML = wepic;
-        field(elem);
-        console.log(elem.hastitle)
+        elem = field(elem);
         render(elem, {
             hastitle: elem.hastitle,
             pic: image,
