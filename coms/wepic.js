@@ -9,7 +9,10 @@ function main(elem) {
             input,
             select,
             a: button,
-            m: data
+            setData(value) {
+                data.url = value;
+            },
+            data
         });
     });
     return elem;

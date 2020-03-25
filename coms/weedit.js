@@ -7,15 +7,16 @@ function main() {
         blocks: [],
         active(b) {
             if (!~this.blocks.indexOf(b)) return;
+            var pg;
             if (this.blocks.active === b) {
                 this.blocks.active = null;
-                var pg = weconfig;
+                pg = weconfig;
             } else {
                 this.blocks.active = b;
-                var pg = b.config;
+                pg = b.config;
             }
             remove(this.right.children);
-            if (pg) appendChild(this.right, pg());
+            if (pg) appendChild(this.right, pg(b));
         },
         addBlock(c) {
             if (!c.com) {
@@ -51,56 +52,78 @@ function main() {
             }, false);
         },
         coms: [
-            {
+            {//0
                 name: "轮播图",
-                com: slider,
+                com() {
+                    var images = [];
+                    var s = slider((i) => {
+                        i = i % this.data.length;
+                        var d = this.data[i];
+
+                        if (!d) return;
+                        var img = images[i];
+                        if (img && img.url === d.url) {
+                            return img;
+                        }
+                        if (!d.url) return;
+                        var block = document.createElement("div");
+                        css(block, {
+                            backgroundImage: `url(${d.url})`
+                        });
+                        block.url = d.url;
+                        images[i] = block;
+                        return block;
+                    });
+                    s.play();
+                    return s;
+                },
                 config: weslider,
             },
-            {
+            {//1
                 name: "图片广告",
                 com: slider,
                 config: weimage,
             },
-            {
+            {//2
                 name: "搜索",
                 com: searchbar,
                 config: wesearch,
             },
-            {
+            {//3
                 name: "图片导航",
                 com: slider,
                 config: wenav,
             },
-            {
+            {//4
                 name: "魔方",
                 com: slider,
                 config: wecube,
             },
-            {
+            {//5
                 name: "商品",
                 com: slider,
                 config: wegoods,
             },
-            {
+            {//6
                 name: "商品分区",
             },
-            {
+            {//7
                 name: "文本",
                 com: slider,
                 config: wetext
             },
-            {
+            {//8
                 name: "富文本",
                 com: slider,
                 config: richtext,
             },
-            {
+            {///9
                 name: "热区",
                 com: slider,
                 config: welink,
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[8]);
+    $scope.addBlock($scope.coms[0]);
     return page;
 }

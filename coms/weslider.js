@@ -1,8 +1,11 @@
-function main() {
+function main(params) {
+    if (!params.data) {
+        params.data = [{}];
+    }
     var page = view();
     page.innerHTML = weslider;
     render(page, {
-        images: [{}],
+        images: params.data,
         pic: zimoli$image,
         // field,
         input,
