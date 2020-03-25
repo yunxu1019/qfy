@@ -3639,7 +3639,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @grammar editor.setWidth(number);  //纯数值，不带单位
          */
         setWidth:function(width){
-            this.$container && this.$container.width(width);
+            // this.$container && this.$container.width(width);
             $(this.body).width(width - $(this.body).css('padding-left').replace('px','') * 1 - $(this.body).css('padding-right').replace('px','') * 1);
             this.fireEvent('resize');
         },
@@ -9825,7 +9825,7 @@ UM.ui.define('separator', {
                 }
 
                 $container.css({
-                    width: options.initialFrameWidth,
+                    // width: options.initialFrameWidth,
                     zIndex:editor.getOpt('zIndex')
                 });
 
@@ -10116,8 +10116,8 @@ UM.registerUI('bold italic redo undo underline strikethrough superscript subscri
             bound = this.getBound();
 
             $( editor.container ).css( {
-                width: width + 'px',
-                height: height + 'px',
+                // width: width + 'px',
+                // height: height + 'px',
                 position: !$.IE6 ? 'fixed' : 'absolute',
                 top: bound.top,
                 left: bound.left,
@@ -10128,7 +10128,7 @@ UM.registerUI('bold italic redo undo underline strikethrough superscript subscri
             } );
 
             $( editorBody ).css({
-                width: width - 2*borderWidth - paddingWidth + 'px',
+                // width: width - 2*borderWidth - paddingWidth + 'px',
                 height: height - 2*borderWidth - ( editor.options.withoutToolbar ? 0 : $( '.edui-toolbar', editor.container ).outerHeight() ) - $( '.edui-bottombar', editor.container).outerHeight() + 'px',
                 overflowX: 'hidden',
                 overflowY: 'auto'
