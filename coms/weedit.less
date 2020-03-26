@@ -1,15 +1,33 @@
 & {
-    padding: 14px;
-
+    padding: 56px 14px 14px 14px;
+    position: relative;
+    height: 100%;
 }
 
-.body>div {
-    display: inline-block;
-    vertical-align: top;
+@toolpad-height: 210px;
+
+>.body {
+    height: 100%;
+    position: relative;
+    white-space: nowrap;
+    overflow: auto;
+
+    >vbox {
+        display: inline-block;
+        white-space: normal;
+        vertical-align: top;
+        height: 100%;
+        width: auto;
+
+        &.left {
+            margin-right: 14px;
+        }
+    }
 }
 
-.title {
+>.title {
     display: block;
+    margin-top: -42px;
 
     >span,
     >a {
@@ -24,16 +42,27 @@
     display: block;
     position: relative;
     overflow: hidden;
-    width: 375px;
-    height: 667px;
+    width: 377px;
+    height: 100%;
+    padding-bottom: @toolpad-height;
+    border: 1.0px solid #ccc;
 
     com {
+        >img {
+            width: 100%;
+            height: auto;
+            background-color: #ccc;
+            min-height: 36px;
+            display: block;
+        }
+
         position: relative;
         display: block;
         min-height: 10px;
 
         >after {
             content: "";
+            color: #0000;
             position: absolute;
             left: 0;
             right: 0;
@@ -43,8 +72,22 @@
     }
 }
 
+.dropping+.toolpad {
+    height: 0;
+}
+
 .toolpad {
     line-height: 38px;
+    height: @toolpad-height;
+    margin-top: -@toolpad-height;
+    transition: .2s .5s height ease-in;
+    background: #ffffff99;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     btn {
         width: 109px;
@@ -59,7 +102,7 @@
     }
 
     border:1px solid #ccc;
-    width: 375px;
+    width: auto;
     padding: 0 0 0 12px;
 }
 
@@ -72,6 +115,7 @@
         background-position: center;
         background-size: cover;
     }
+
     padding-bottom: 37.9%;
 }
 

@@ -3,7 +3,7 @@
     <hr />
 </div>
 <div class="body">
-    <div class="left">
+    <vbox class="left">
         <mobile class="mobile">
             <com ng-src=b ng-delete=remove(i) ng-repeat="(b,i) in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
         </mobile>
@@ -13,7 +13,7 @@
                 <span ng-bind="c.name"></span>
             </btn>
         </div>
-    </div>
-    <div class="right" elementid=right>
-    </div>
+    </vbox>
+    <vbox class="right" elementid=right>
+    </vbox>
 </div>

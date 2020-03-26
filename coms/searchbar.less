@@ -2,7 +2,8 @@
     position: relative;
     height: 50px;
     line-height: 50px;
-    border: 6px 12px solid transparent;
+    border: solid transparent;
+    border-width: 0 12px;
 }
 
 .input {
@@ -12,7 +13,24 @@
     height: 35px;
     position: relative;
     background: transparent;
+    color: inherit;
 }
+
+.input::-moz-placeholder {
+    color: inherit;
+    opacity: .6;
+}
+
+.input::-ms-input-placeholder {
+    color: inherit;
+    opacity: .6;
+}
+
+.input::-webkit-input-placeholder {
+    color: inherit;
+    opacity: .6;
+}
+
 
 .search {
     height: 1em;
@@ -22,4 +40,5 @@
     left: 10px;
     vertical-align: middle;
     margin-right: -1em;
+    z-index: 1;
 }

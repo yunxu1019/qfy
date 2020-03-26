@@ -1,10 +1,11 @@
 function main() {
-    var page = vbox();
+    var page = div();
     page.innerHTML = weedit;
     var $scope = render(page, {
         a: button,
         btn: button,
         blocks: [],
+        vbox,
         active(b) {
             if (!~this.blocks.indexOf(b)) return;
             var pg;
@@ -81,12 +82,19 @@ function main() {
             },
             {//1
                 name: "图片广告",
-                com: slider,
+                com() {
+                    var block = document.createElement("img");
+                    block.setAttribute("ng-src", "data.url");
+                    render(block, this);
+                    return block;
+                },
                 config: weimage,
             },
             {//2
                 name: "搜索",
-                com: searchbar,
+                com() {
+                    return searchbar.call(this, this);
+                },
                 config: wesearch,
             },
             {//3
@@ -124,6 +132,6 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[0]);
+    $scope.addBlock($scope.coms[2]);
     return page;
 }

@@ -1,10 +1,12 @@
-function main() {
+function main({ data, field }) {
+    if (!data[field.key]) data[field.key] = [];
+
     var page = div();
     page.innerHTML = price;
     render(page, {
         btn: button,
         input,
-        prices: [],
+        prices: data[field.key],
         value: ['', ''],
         add() {
             var { value } = this;
