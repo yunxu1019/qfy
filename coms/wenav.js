@@ -9,6 +9,10 @@ function main(params) {
         wepic,
         btn: button,
         padding,
+        delete: drop,
+        remove(i) {
+            this.goods.splice(i, 1);
+        },
         vbox(e) {
             autodragchildren(e, e, (src, dst) => {
                 var a = this.goods.splice(src, 1);

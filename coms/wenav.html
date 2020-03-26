@@ -4,8 +4,9 @@
 <div class="body">
     <div class="info">添加图片：最多添加5张图片，鼠标拖拽调整广告顺序</div>
     <vbox>
-        <padding ng-repeat="m in goods">
+        <padding ng-repeat="(m,i) in goods">
             <wepic ng-src=m></wepic>
+            <delete ng-click="remove(i)"></delete>
         </padding>
     </vbox>
     <padding>
