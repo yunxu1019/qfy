@@ -8,7 +8,7 @@
     <vbox>
         <padding ng-repeat="(m,i) in images">
             <wepic ng-src=m></wepic>
-            <delete ng-click="remove(i)"></delete>
+            <delete ng-if="images.length>1" ng-click="remove(i)"></delete>
         </padding>
     </vbox>
     <padding>
