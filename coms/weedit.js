@@ -42,7 +42,7 @@ function main() {
         },
         com(c) {
             care(c, function (component) {
-                var com = component.com();
+                var com = component.com(component);
                 remove(c.children);
                 var after = document.createElement('after');
                 after.innerHTML = `<x>${component.name}</x><x ng-click="dispatch(this.parentNode.parentNode,'delete')" class="close">×</x>`;
@@ -69,7 +69,7 @@ function main() {
                         if (!d.url) return;
                         var block = document.createElement("div");
                         css(block, {
-                            backgroundImage: `url(${d.url})`
+                            backgroundImage: `url('${d.url}')`
                         });
                         block.url = d.url;
                         images[i] = block;
@@ -92,14 +92,12 @@ function main() {
             },
             {//2
                 name: "搜索",
-                com() {
-                    return searchbar.call(this, this);
-                },
+                com: searchbar,
                 config: wesearch,
             },
             {//3
                 name: "图片导航",
-                com: slider,
+                com: navbar,
                 config: wenav,
             },
             {//4
@@ -132,6 +130,6 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[2]);
+    $scope.addBlock($scope.coms[3]);
     return page;
 }

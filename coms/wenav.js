@@ -1,13 +1,20 @@
-function main() {
+function main(params) {
     var page = view();
+    if (!params.data) params.data = [];
+    var data = params.data;
+    if (!data.length) data.push({});
     page.innerHTML = wenav;
     render(page, {
-        goods: [{}],
+        goods: data,
         wepic,
         btn: button,
         padding,
         vbox(e) {
-            autodragchildren(e, e);
+            autodragchildren(e, e, (src, dst) => {
+                var a = this.goods.splice(src, 1);
+                this.goods.splice(dst, 0, a[0]);
+                render.refresh();
+            });
             return e;
         },
         add() {
