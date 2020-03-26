@@ -5,7 +5,6 @@ function main() {
         a: button,
         btn: button,
         blocks: [],
-        vbox,
         active(b) {
             if (!~this.blocks.indexOf(b)) return;
             var pg;
@@ -30,8 +29,10 @@ function main() {
             this.active(block);
         },
         mobile(e) {
-            autodragchildren(e, e);
-            vbox(e);
+            autodragchildren(e, e, (src, dst) => {
+                var block = this.blocks.splice(src, 1);
+                this.blocks.splice(dst, 0, block[0]);
+            });
             return e;
         },
         remove(i) {

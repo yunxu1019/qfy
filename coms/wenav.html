@@ -10,7 +10,7 @@
         </padding>
     </vbox>
     <padding>
-        <btn type=white ng-click="add()">
+        <btn ng-if="goods.length&lt;5" type=white ng-click="add()">
             +添加商品分组
         </btn>
     </padding>

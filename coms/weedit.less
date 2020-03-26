@@ -10,7 +10,8 @@
     height: 100%;
     position: relative;
     white-space: nowrap;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
 
     >vbox {
         display: inline-block;
@@ -18,9 +19,17 @@
         vertical-align: top;
         height: 100%;
         width: auto;
+        position: relative;
 
         &.left {
             margin-right: 14px;
+            width: 377px;
+            border: 1.0px solid #ccc;
+            overflow: hidden;
+        }
+
+        &.right {
+            overflow: auto;
         }
     }
 }
@@ -42,10 +51,16 @@
     display: block;
     position: relative;
     overflow: hidden;
-    width: 377px;
+    margin-right: -100px;
+
+    >com {
+        width: 375px;
+    }
+
     height: 100%;
     padding-bottom: @toolpad-height;
-    border: 1.0px solid #ccc;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     com {
         >img {
