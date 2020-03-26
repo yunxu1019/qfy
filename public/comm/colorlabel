@@ -1,1 +1,0 @@
-01gdiv,care,css,cless,a,b,c,dfunction e(d){return d===void 0&&(d=a()),b(d,function(a){c(this,'background',a)}),d}return d(e,'.-wp{width:40px;height:20px;background:#ccc;display:inline-block}','-wp colorlabel colorlabel')

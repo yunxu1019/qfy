@@ -1,1 +1,0 @@
-function a(a){return typeof a==='function'}return a

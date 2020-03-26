@@ -1,1 +1,0 @@
-02odiv,render,button,cast,padding,cless,c,d,e,f,g,hfunction i(){var b=c();return b.innerHTML=a,d(b,{btn:e,edit:function(a){a===void 0&&(a={}),f(b,a)},padding:g}),b}var a,b,b=a={toString:function(){return'<div><btn ng-click=edit()>\u65b0\u589e\u5fae\u9875\u9762</btn></div>'}};return h(i,'.-tk{padding:14px}.-tk .button{padding:0 10px}','-tk welist welist')

@@ -1,1 +1,0 @@
-02ydocument,isString,createEvent,isNode,window,b,c,d,e,ffunction g(){var i,g;for(var h=0,j=arguments.length;h<j;h++){var b=arguments[h];c(b)?g=d(b):e(b)?i=b:g=b}return a(i||f,g)?g:!1}var a='dispatchEvent'in b?function a(b,c){return b.dispatchEvent(c)}:function a(c,d){var b='on'+d.type;try{return c.fireEvent(b,d)}catch(a){return c[b]&&c[b](d)}};return g

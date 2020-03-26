@@ -1,1 +1,0 @@
-var b={}.hasOwnProperty,a=this.Object,c=a.assign||function(f){if(f instanceof a)for(var d=1,g=arguments.length;d<g;d++){var c=arguments[d];if(c instanceof a)for(var e in c)b.call(c,e)&&(f[e]=c[e])}return f};return c

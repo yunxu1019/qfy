@@ -1,1 +1,0 @@
-01awindow,clearTimeout,a,cvar b=a.cancelAnimationFrame||a.mozCancelAnimationFrame||a.webkitCancelAnimationFrame||a.msCancelAnimationFrame||function(a){return c(a)};return b

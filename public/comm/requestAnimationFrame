@@ -1,1 +1,0 @@
-01kDate,window,setTimeout,c,a,evar b=+new c,d=a.requestAnimationFrame||a.mozRequestAnimationFrame||a.webkitRequestAnimationFrame||a.msRequestAnimationFrame||function(f){var a=+new c,d=a-b>16?0:a%16;return b=d+a,e(f,d)};return d

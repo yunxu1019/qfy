@@ -1,1 +1,0 @@
-function b(){return a++}var a=268435456;return b

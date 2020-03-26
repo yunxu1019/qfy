@@ -1,1 +1,0 @@
-00ecless,areturn a('\n<div ng-if=\'showTitle!==false\' ng-bind="viewTitle"></div><div class="close" ng-if=\'closeable!==false\' ng-click=closeView()>×</div>','.-wo.close{display:block;position:absolute;right:0;top:0}.-wo.close:hover{color:#fff;background:#f00}','-wo viewTitle viewTitle')

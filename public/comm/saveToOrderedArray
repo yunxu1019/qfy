@@ -1,1 +1,0 @@
-01ggetIndexFromOrderedArray,bvar a=function(a,c,e){var d=b(a,c,e);a.splice(d+1,0,c)};return a

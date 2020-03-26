@@ -1,1 +1,0 @@
-00qdiv,cless,c,dfunction e(b){return b===void 0&&(b=c()),b.innerHTML||(b.innerHTML=a),b}var a,b,b=a={toString:function(){return'×'}};return d(e,'.-vg{padding:5px 10px;display:none;position:absolute;right:0;top:0;line-height:24px;font-size:20px;cursor:pointer}:hover>.-vg{display:block}.-vg:hover{color:#f26}.-vg:active{color:#c26}','-vg drop drop')

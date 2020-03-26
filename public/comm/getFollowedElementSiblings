@@ -1,1 +1,0 @@
-var a=function(a){var b=[];while(a.nextSibling)a=a.nextSibling,a.nodeType===1&&b.push(a);return b};return a

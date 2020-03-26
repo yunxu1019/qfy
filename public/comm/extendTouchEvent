@@ -1,1 +1,0 @@
-function a(a){var c=a.touches[0];for(var b in c)b in a||(a[b]=c[b]);return a}return a
