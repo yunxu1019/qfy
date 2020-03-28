@@ -103,7 +103,32 @@ function main() {
             },
             {//4
                 name: "魔方",
-                com: slider,
+                com() {
+                    var elem = document.createElement("grid");
+                    elem.setAttribute("ng-src", "data.cube_data");
+                    if (!this.data) this.data = {};
+                    var data = this.data;
+                    render(elem, {
+                        grid,
+                        data
+                    });
+                    care(elem, (a) => {
+                        var inc = 0;
+                        elem.forEachCell((point) => {
+                            var { target } = point;
+                            target.innerHTML = `<div class="image" ng-style="{backgroundImage:'url(\\''+image.url+'\\')'}" ></div>`;
+                            var imgs = data.cube.imgs;
+                            if (!imgs[inc]) imgs[inc] = {};
+                            render(target, {
+                                image: imgs[inc]
+                            });
+                            inc++;
+                            console.log(target);
+                        });
+                    });
+                    return elem;
+
+                },
                 config: wecube,
             },
             {//5
@@ -131,6 +156,6 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[3]);
+    $scope.addBlock($scope.coms[4]);
     return page;
 }

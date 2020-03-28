@@ -6,6 +6,6 @@
         <field ng-src=[f,data]></field>
     </padding>
     <padding class="bottom">
-        <wepic ng-src=data _hastitle=false></wepic>
+        <wepic ng-src="data.cube.imgs[data.cubepart-1]" ng-change="setImage(this.value)" _hastitle=false></wepic>
     </padding>
 </div>

@@ -5,17 +5,23 @@ function main({ field, data }) {
         grid,
         field,
         data,
-        setGrid(g, i) {
-            if (i === data[field.key]) return;
-            data[field.key] = i;
+        keys() {
+            return this.grids.map((_, i) => i);
+        },
+        setGrid(grid) {
+            if (grid === data[field.key]) return;
+            elem.value = grid;
             dispatch(elem, 'change');
         },
         padding,
         btn: button,
         grids: field.options,
     }).$scope;
-    onappend(elem,function(){
-        $scope.setGrid(null, data[field.key] || 0);
-    });
+    elem.setValue = function (v) {
+        if (v) {
+            var value = $scope.grids.map(a => a.id).indexOf(v.id);
+            if (value) $scope.setGrid(v);
+        }
+    };
     return elem;
 }
