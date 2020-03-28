@@ -1,0 +1,22 @@
+<div class="head">
+    <span class="title">
+        选择商品 (<span ng-bind="checked.length"></span>)
+    </span>
+    <input class="search" ng-model="keyword"  ng-input=search() ng-keyup=search() placeholder="输入以搜索商品" />
+    <span class="title" ng-show="goods.loading">⇵</span>
+</div>
+<list class="body" ng-src="g in goods" min-width=132>
+    <padding>
+        <block ng-click="check(g)">
+            <div class="bg"></div>
+            <png ng-src=g.imgurl></png>
+            <div class="name" ng-bind=g.name></div>
+            <div class="price" ng-bind=g.price></div>
+            <checker ng-model=g.checked></checker>
+        </block>
+    </padding>
+</list>
+<div class="foot">
+    <btn type=white ng-click=close()>取消</btn>
+    <btn ng-click="save()">确定</btn>
+</div>

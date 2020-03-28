@@ -25,6 +25,7 @@ function main() {
             }
 
             var block = extend({}, c);
+            block.data = JSON.parse(JSON.stringify(c.data || {}));
             this.blocks.push(block);
             this.active(block);
         },
@@ -56,6 +57,7 @@ function main() {
         coms: [
             {//0
                 name: "轮播图",
+                data: [],
                 com() {
                     var images = [];
                     var s = slider((i) => {
@@ -83,6 +85,7 @@ function main() {
             },
             {//1
                 name: "图片广告",
+                data: {},
                 com() {
                     var block = document.createElement("img");
                     block.setAttribute("ng-src", "data.url");
@@ -93,16 +96,19 @@ function main() {
             },
             {//2
                 name: "搜索",
+                data: {},
                 com: searchbar,
                 config: wesearch,
             },
             {//3
                 name: "图片导航",
+                data: [],
                 com: navbar,
                 config: wenav,
             },
             {//4
                 name: "魔方",
+                data: {},
                 com() {
                     var elem = document.createElement("grid");
                     elem.setAttribute("ng-src", "data.cube_data");
@@ -133,29 +139,35 @@ function main() {
             },
             {//5
                 name: "商品",
+                data: {},
                 com: slider,
                 config: wegoods,
             },
             {//6
                 name: "商品分区",
+                data: {},
+
             },
             {//7
                 name: "文本",
+                data: {},
                 com: slider,
                 config: wetext
             },
             {//8
                 name: "富文本",
+                data: {},
                 com: slider,
                 config: richtext,
             },
             {///9
                 name: "热区",
+                data: {},
                 com: slider,
                 config: welink,
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[4]);
+    $scope.addBlock($scope.coms[5]);
     return page;
 }
