@@ -18,18 +18,29 @@ function main(params) {
         editor: null,
         richtext(elem) {
             onappend(elem, function () {
-                var editor = umeditor.createEditor(elem, {});
+                editor = umeditor.createEditor(elem, {});
                 onremove(elem, function () {
                     if (editor) editor.destroy();
                     console.log("editor destroy!");
                 });
                 editor.addListener("contentChange", function () {
                     var content = editor.getContent();
-                    data.content = content;
+                    elem.value = content;
+                    dispatch(elem, 'change');
                     render.refresh();
                 });
+                if (value) editor.ready(_ => editor.setContent(value));
                 return elem;
             });
+            var value = '', editor;
+            elem.setValue = function (v) {
+                console.log(v);
+                if (editor) {
+                    editor.ready(_ => editor.setContent(v));
+                } else {
+                    value = v;
+                }
+            };
         },
 
     });

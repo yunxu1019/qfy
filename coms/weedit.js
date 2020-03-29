@@ -1,5 +1,5 @@
 function main() {
-    var page = div();
+    var page = view();
     page.innerHTML = weedit;
     var $scope = render(page, {
         a: button,
@@ -33,6 +33,9 @@ function main() {
             block.data = JSON.parse(JSON.stringify(c.data || {}));
             this.blocks.push(block);
             this.active(block);
+            setTimeout(function () {
+                page.querySelector(".mobile>:nth-last-child(1)").scrollIntoView();
+            },10);
         },
         mobile(e) {
             autodragchildren(e, e, (src, dst) => {
@@ -173,7 +176,7 @@ function main() {
             },
         ],
     }).$scope;
-    // $scope.active();
-    $scope.addBlock($scope.coms[9]);
+    $scope.active();
+    // $scope.addBlock($scope.coms[9]);
     return page;
 }
