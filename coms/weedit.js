@@ -168,12 +168,12 @@ function main() {
             {///9
                 name: "热区",
                 data: {},
-                com: slider,
+                com: linkview,
                 config: welink,
             },
         ],
     }).$scope;
-    $scope.active();
-    // $scope.addBlock($scope.coms[8]);
+    // $scope.active();
+    $scope.addBlock($scope.coms[9]);
     return page;
 }

@@ -1,0 +1,47 @@
+& {
+    display: block;
+    position: relative;
+    padding-bottom: 100%;
+}
+
+png {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+[rect] {
+    position: absolute;
+    z-index: 1;
+    border: 2px solid #409EFF;
+    background-color: #409EFF99;
+    box-sizing: border-box;
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -9px;
+        top: -9px;
+        right: -9px;
+        bottom: -9px;
+    }
+
+    &:hover {
+        z-index: 2;
+        background-color: #409EFF66;
+    }
+    &:active {
+        background-color: #409EFFcc;
+    }
+    &.activate {
+        background-color: #FF226666;
+        border-color: #FF2266cc;
+    }
+    
+
+}

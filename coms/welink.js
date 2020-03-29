@@ -144,7 +144,12 @@ var handle = {
         render.refresh();
     }
 };
-function main() {
+function main(params) {
+    if (!params.data) params.data = {};
+    var data = params.data;
+    extendIfNeeded(data, {
+        rects: []
+    });
     var page = view();
     page.innerHTML = welink;
     onappend(page, function () {
@@ -153,15 +158,13 @@ function main() {
     });
 
     render(page, {
-        pic: function (e) {
-            e = image(e);
-            return e;
-        },
+        pic: image,
         btn: button,
         drawing: false,
-        _rects: [],
+        _rects: data.rects,
         field,
         model,
+        data,
         field1: {
             key: "link",
             type: "select",

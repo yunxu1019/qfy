@@ -7,7 +7,7 @@ function main(params) {
         color: "#333",
         background: "#fff",
         align: "left",
-    })
+    });
     var page = view();
     page.innerHTML = wetext;
     render(page, {

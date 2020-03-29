@@ -13,7 +13,7 @@
             ng-style="r.style" rect>
         </div>
     </rects>
-    <pic ng-class={drawing:drawing} elementid="image" uploadto="/@/data/"></pic>
+    <pic ng-class={drawing:drawing} ng-model=data.imgurl elementid="image" uploadto="/@/data/"></pic>
     <field ng-if="_rects.active">
         <div>热区链接</div>
         <div>
@@ -26,5 +26,5 @@
     <btn disabled_="!image.hasInstance" ng-click="addRect()">
         添加热区
     </btn>
-    <btn disabled_="!image.hasInstance||drawing" type=white>保存</btn>
+    <!-- <btn disabled_="!image.hasInstance||drawing" type=white>保存</btn> -->
 </div>
