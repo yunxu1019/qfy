@@ -34,9 +34,8 @@ function main(params) {
             });
             var value = '', editor;
             elem.setValue = function (v) {
-                console.log(v);
                 if (editor) {
-                    editor.ready(_ => editor.setContent(v));
+                    editor.ready(_ => editor.getContent() !== v && editor.setContent(v));
                 } else {
                     value = v;
                 }
