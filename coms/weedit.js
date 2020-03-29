@@ -4,14 +4,19 @@ function main() {
     var $scope = render(page, {
         a: button,
         btn: button,
+        config: {
+            background: "#fff",
+            hideMenu: 1,
+        },
         blocks: [],
         active(b) {
-            if (!~this.blocks.indexOf(b)) return;
             var pg;
-            if (this.blocks.active === b) {
+            if (!b || this.blocks.active === b) {
                 this.blocks.active = null;
+                b = { data: this.config };
                 pg = weconfig;
             } else {
+                if (!~this.blocks.indexOf(b)) return;
                 this.blocks.active = b;
                 pg = b.config;
             }
@@ -23,7 +28,7 @@ function main() {
                 alert(`${c.name}暂不可用！`);
                 return;
             }
-            
+
             var block = extend({}, c);
             block.data = JSON.parse(JSON.stringify(c.data || {}));
             this.blocks.push(block);
@@ -168,6 +173,7 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[8]);
+    $scope.active();
+    // $scope.addBlock($scope.coms[8]);
     return page;
 }

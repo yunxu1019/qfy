@@ -4,7 +4,7 @@
 </div>
 <div class="body">
     <vbox class="left">
-        <mobile class="mobile">
+        <mobile class="mobile" ng-style="{background:config.background}">
             <com ng-src=b ng-delete=remove(i) ng-repeat="(b,i) in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
         </mobile>
         <div class="toolpad">
