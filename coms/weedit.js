@@ -23,7 +23,7 @@ function main() {
                 alert(`${c.name}暂不可用！`);
                 return;
             }
-
+            
             var block = extend({}, c);
             block.data = JSON.parse(JSON.stringify(c.data || {}));
             this.blocks.push(block);
@@ -140,7 +140,7 @@ function main() {
             {//5
                 name: "商品",
                 data: {},
-                com: slider,
+                com: goodsview,
                 config: wegoods,
             },
             {//6

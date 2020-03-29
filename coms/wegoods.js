@@ -1,9 +1,17 @@
-function main() {
+function main(params) {
+    if (!params.data) params.data = {};
+    var data = params.data;
+    extendIfNeeded(data, {
+        style: 0,
+        mode: 0,
+        source: 0,
+        content: [0, 1, 2]
+    });
     var page = view();
     page.innerHTML = wegoods;
     var $scope = render(page, {
         field,
-        data: {},
+        data,
         padding,
         fields: [
             {
@@ -33,12 +41,18 @@ function main() {
             }
         ],
         goods: [],
-        png:img,
+        png: img,
+        delete: drop,
+        removeGoods(g, i) {
+            data.goods.splice(i, 1);
+            g.checked = false;
+        },
         addImage() {
             var page = chooseGoods();
             care(page, 'choosed', function (goods) {
-                $scope.goods = goods;
+                data.goods = goods;
             });
+            page.setChecked(data.goods || []);
             popup(page, true);
             // chooseFile("image/*").then((files) => {
             //     var [file] = files;
@@ -49,5 +63,6 @@ function main() {
             // });
         }
     }).$scope;
+
     return page;
 }

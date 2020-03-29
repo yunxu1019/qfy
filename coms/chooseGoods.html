@@ -2,10 +2,13 @@
     <span class="title">
         选择商品 (<span ng-bind="checked.length"></span>)
     </span>
-    <input class="search" ng-model="keyword"  ng-input=search() ng-keyup=search() placeholder="输入以搜索商品" />
+    <input class="search" ng-model="keyword" ng-input=search() ng-keyup=search() placeholder="输入以搜索商品" />
     <span class="title" ng-show="goods.loading">⇵</span>
 </div>
-<list class="body" ng-src="g in goods" min-width=132>
+<div ng-if="!keyword" class="body">
+    <btn type="white" ng-click="search(w,60)" ng-repeat="w in history" ng-bind="w"></btn>
+</div>
+<list ng-if="keyword" class="body" ng-src="g in goods" min-width=132>
     <padding>
         <block ng-click="check(g)">
             <div class="bg"></div>

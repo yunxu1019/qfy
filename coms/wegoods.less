@@ -9,9 +9,7 @@
     display: inline-block;
     background: #fff;
     border-radius: 3px;
-    line-height: 78px;
     font-size: 48px;
-    border: 1px solid #e5e5e5;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -28,16 +26,11 @@
     border: 10px solid transparent;
     border-width: 10px 16px;
 
-    png {
-        width: 80px;
-        height: 80px;
-    }
 
     >div {
         background: #fff;
         height: 100px;
         padding: 10px 16px;
-        color: #409EFF;
 
         &.head {
             text-align: right;
@@ -46,8 +39,33 @@
         }
 
         &.body {
+            padding-bottom: 0;
+            >div {
+                width: 80px;
+                height: 80px;
+                display: inline-block;
+                position: relative;
+                margin-right: 16px;
+                margin-bottom: 16px;
+                padding: 10px;
+                line-height: 58px;
+                border: 1.0px solid #e5e5e5;
+
+                png {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+            delete {
+                right: -6px;
+                top: -6px;
+                position: absolute;
+            }
+
             text-align: left;
             white-space: normal;
+            color: #409EFF;
         }
     }
 }

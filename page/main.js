@@ -6,9 +6,9 @@ data.setConfig({
             pid: "!data-pid",
             detailurl: "a!href",
             imgurl: "img!source-data-lazy-img",
-            price: ".p-price!innerText",
+            price: ".p-price|innerText",
             name: ".p-name>a>em!innerText",
-            shop:".p-shop>span>a.curr-shop!title",
+            shop:"a.curr-shop!title",
             desc:".p-name>a>i!innerText"
         })}`
     }

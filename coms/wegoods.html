@@ -6,7 +6,10 @@
     <field class="goods-box">
         <div class="head">商品</div>
         <div class="body">
-            <png ng-repeat="m in goods" ng-src=m.imgurl></png>
+            <div ng-repeat="(m,i) in data.goods">
+                <png ng-src=m.imgurl></png>
+                <delete ng-click="data.goods.splice(i,1)"></delete>
+            </div>
             <div class="plus" ng-click=addImage()>＋</div>
         </div>
     </field>

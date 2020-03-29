@@ -1,0 +1,28 @@
+<list ng-if="data.style===0" ng-src="g in data.goods" min-width=160>
+    <padding>
+        <block>
+            <png ng-src=g.imgurl></png>
+            <div class=name ng-bind="g.name"></div>
+            <div class=desc ng-if="data.content?.checked[0]" ng-bind="g.desc||g.name"></div>
+            <div class="price">
+                <span ng-if="data.content?.checked[1]" ng-bind="g.price"></span>
+                <a ng-if="data.content?.checked[2]">购买</a>
+            </div>
+    </block>
+    </padding>
+</list>
+<list ng-if="data.style===1" ng-src="g in data.goods" min-width=240>
+    <padding>
+        <block class="item">
+            <png class="left" ng-src=g.imgurl></png>
+            <div class="right">
+                <div class=name ng-bind="g.name"></div>
+                <div class=desc ng-if="data.content?.checked[0]" ng-bind="g.desc||g.name"></div>
+                <div class="price">
+                    <span ng-if="data.content?.checked[1]" ng-bind="g.price"></span>
+                    <a ng-if="data.content?.checked[2]">购买</a>
+                </div>
+            </div>
+        </block>
+    </padding>
+</list>
