@@ -1,27 +1,37 @@
-function main() {
-    var pag = view();
-    pag.innerHTML = richtext;
-    render(pag, {
+function main(params) {
+    if (!params.data) params.data = {};
+    var data = params.data;
+    extendIfNeeded(data, {
+        background: "#fff"
+    });
+    var page = view();
+    page.innerHTML = richtext;
+    render(page, {
         model,
         field,
-        data: {},
+        data,
         field1: {
-            key: "name",
+            key: "background",
             type: "color",
             name: "背景颜色"
         },
+        editor: null,
         richtext(elem) {
             onappend(elem, function () {
-                console.log("elem");
                 var editor = umeditor.createEditor(elem, {});
                 onremove(elem, function () {
                     if (editor) editor.destroy();
                     console.log("editor destroy!");
+                });
+                editor.addListener("contentChange", function () {
+                    var content = editor.getContent();
+                    data.content = content;
+                    render.refresh();
                 });
                 return elem;
             });
         },
 
     });
-    return pag;
+    return page;
 }

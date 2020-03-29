@@ -151,13 +151,13 @@ function main() {
             {//7
                 name: "文本",
                 data: {},
-                com: slider,
+                com: normaltext,
                 config: wetext
             },
             {//8
                 name: "富文本",
                 data: {},
-                com: slider,
+                com: richview,
                 config: richtext,
             },
             {///9
@@ -168,6 +168,6 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.addBlock($scope.coms[5]);
+    $scope.addBlock($scope.coms[8]);
     return page;
 }
