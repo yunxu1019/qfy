@@ -10694,7 +10694,6 @@
                 $(me.container.offsetParent).off('scroll', updateFloating);
                 me.removeListener('keydown', defer_updateFloating);
             });
-            console.log(me);
 
             if (checkHasUI(me)) {
                 toolbarBox = $('.edui-toolbar', me.container)[0];
