@@ -10114,14 +10114,15 @@
                     position: !$.IE6 ? 'fixed' : 'absolute',
                     top: bound.top,
                     left: bound.left,
+                    bottom: 0,
+                    right: 0,
                     margin: 0,
                     padding: 0,
                     overflowX: 'hidden',
                     overflowY: 'hidden'
                 });
-
                 $(editorBody).css({
-                    // width: width - 2*borderWidth - paddingWidth + 'px',
+                    width: '',
                     height: height - 2 * borderWidth - (editor.options.withoutToolbar ? 0 : $('.edui-toolbar', editor.container).outerHeight()) - $('.edui-bottombar', editor.container).outerHeight() + 'px',
                     overflowX: 'hidden',
                     overflowY: 'auto'
