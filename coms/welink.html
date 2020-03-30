@@ -9,7 +9,7 @@
         </span>
     </div>
     <rects>
-        <div ng-class="{activate:_rects.active===r}" ng-click="_rects.active=r" ng-repeat="r in _rects"
+        <div ng-class="{activate:_rects.active===r}" ng-click="_rects.active=_rects.active===r?null:r" ng-repeat="r in _rects"
             ng-style="r.style" rect>
         </div>
     </rects>
