@@ -176,7 +176,7 @@ function main() {
             },
         ],
     }).$scope;
-    $scope.active();
-    // $scope.addBlock($scope.coms[9]);
+    // $scope.active();
+    $scope.addBlock($scope.coms[8]);
     return page;
 }

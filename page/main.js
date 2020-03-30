@@ -8,9 +8,10 @@ data.setConfig({
             imgurl: "img!source-data-lazy-img",
             price: ".p-price|innerText",
             name: ".p-name>a>em!innerText",
-            shop:"a.curr-shop!title",
-            desc:".p-name>a>i!innerText"
+            shop: "a.curr-shop!title",
+            desc: ".p-name>a>i!innerText"
         })}`
     }
 });
+on("dragover")(window, e => e.preventDefault());
 var main = wepage;
