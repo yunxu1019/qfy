@@ -8933,22 +8933,22 @@
             }
         },
         _validScaledProp: function (prop, value) {
-            var $ele = this.root(),
-                $wrap = this.defaultOpt.$doc,
-                calc = function (val, a, b) {
-                    return (val + a) > b ? b - a : value;
-                };
-
+            var ele = this.root()[0];
+            var pos = modules.getScreenPosition(ele);
+            var ppos = modules.getScreenPosition(ele.offsetParent);
+            calc = function (val, a, b) {
+                return (val + a) > b ? b - a : value;
+            };
             value = isNaN(value) ? 0 : value;
             switch (prop) {
                 case 'left':
-                    return value < 0 ? 0 : calc(value, $ele.width(), $wrap.width());
+                    return value < 0 ? 0 : calc(value, pos.left - ppos.left, ppos.width);
                 case 'top':
-                    return value < 0 ? 0 : calc(value, $ele.height(), $wrap.height());
+                    return value < 0 ? 0 : calc(value, pos.top - ppos.top, ppos.height);
                 case 'width':
-                    return value <= 0 ? 1 : calc(value, $ele.offset().left, $wrap.width());
+                    return value <= 0 ? 1 : calc(value, pos.left - ppos.left, ppos.width);
                 case 'height':
-                    return value <= 0 ? 1 : calc(value, $ele.offset().top, $wrap.height());
+                    return value <= 0 ? 1 : calc(value, pos.top - ppos.top, ppos.height);
             }
         },
         show: function ($obj) {
@@ -10565,6 +10565,7 @@
                                 if (ele && ele.className.indexOf('edui-scale-hand') == -1) {
                                     clearTimeout(timer);
                                 }
+                                me.fireEvent('contentchange');
                             });
                     }
                     $imagescale.edui().show($(img));
