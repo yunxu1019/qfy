@@ -8824,12 +8824,12 @@
     UM.ui.define('scale', {
         tpl: '<div class="edui-scale" unselectable="on">' +
             '<span class="edui-scale-hand0"></span>' +
-            '<span class="edui-scale-hand1"></span>' +
+            // '<span class="edui-scale-hand1"></span>' +
             '<span class="edui-scale-hand2"></span>' +
-            '<span class="edui-scale-hand3"></span>' +
-            '<span class="edui-scale-hand4"></span>' +
+            // '<span class="edui-scale-hand3"></span>' +
+            // '<span class="edui-scale-hand4"></span>' +
             '<span class="edui-scale-hand5"></span>' +
-            '<span class="edui-scale-hand6"></span>' +
+            // '<span class="edui-scale-hand6"></span>' +
             '<span class="edui-scale-hand7"></span>' +
             '</div>',
         defaultOpt: {
@@ -8867,14 +8867,15 @@
                         me.dragId = hand.className.slice(-1);
                         me.startPos.x = me.prePos.x = e.clientX;
                         me.startPos.y = me.prePos.y = e.clientY;
+                        modules.init('getScreenPosition', function (getScreenPosition) {
+                            me.startPos.rect = getScreenPosition(me.root()[0]);
+                        });
                         $doc.bind('mousemove', $.proxy(me._eventHandler, me));
                     }
                     break;
                 case 'mousemove':
                     if (me.dragId != -1) {
-                        me.updateContainerStyle(me.dragId, { x: e.clientX - me.prePos.x, y: e.clientY - me.prePos.y });
-                        me.prePos.x = e.clientX;
-                        me.prePos.y = e.clientY;
+                        me.updateContainerStyle(me.dragId, { x: e.clientX - me.startPos.x, y: e.clientY - me.startPos.y }, me.startPos.rect);
                         me.updateTargetElement();
                     }
                     break;
@@ -8895,40 +8896,40 @@
             var me = this,
                 $root = me.root(),
                 $target = me.data('$scaleTarget');
-            $target.css({ width: $root.width(), height: $root.height() });
+            $target.css({ width: modules.fromOffset($root.width()), height: modules.fromOffset($root.height()) });
             me.attachTo($target);
         },
-        updateContainerStyle: function (dir, offset) {
+        updateContainerStyle: function (dir, delta, origin) {
             var me = this,
                 $dom = me.root(),
                 tmp,
                 rect = [
                     //[left, top, width, height]
-                    [0, 0, -1, -1],
-                    [0, 0, 0, -1],
-                    [0, 0, 1, -1],
-                    [0, 0, -1, 0],
-                    [0, 0, 1, 0],
-                    [0, 0, -1, 1],
-                    [0, 0, 0, 1],
-                    [0, 0, 1, 1]
+                    [0, 0, -1, -1],//0 top-left
+                    [0, 0, 0, -1],//1 top
+                    [0, 0, 1, -1],//2 top-right
+                    [0, 0, -1, 0],//3 left
+                    [0, 0, 1, 0],//4 right
+                    [0, 0, -1, 1],//5 bottom-left
+                    [0, 0, 0, 1],//6 bottom
+                    [0, 0, 1, 1]//7 bottom-right
                 ];
-
+            var $dom_css = (a, v) => $dom.css(a, modules.fromOffset(v));
             if (rect[dir][0] != 0) {
-                tmp = parseInt($dom.offset().left) + offset.x;
-                $dom.css('left', me._validScaledProp('left', tmp));
+                tmp = origin.left + delta.x;
+                $dom_css('left', me._validScaledProp('left', tmp));
             }
             if (rect[dir][1] != 0) {
-                tmp = parseInt($dom.offset().top) + offset.y;
-                $dom.css('top', me._validScaledProp('top', tmp));
+                tmp = origin.top + delta.y;
+                $dom_css('top', me._validScaledProp('top', tmp));
             }
             if (rect[dir][2] != 0) {
-                tmp = $dom.width() + rect[dir][2] * offset.x;
-                $dom.css('width', me._validScaledProp('width', tmp));
+                tmp = origin.width + rect[dir][2] * delta.x;
+                $dom_css('width', me._validScaledProp('width', tmp));
             }
             if (rect[dir][3] != 0) {
-                tmp = $dom.height() + rect[dir][3] * offset.y;
-                $dom.css('height', me._validScaledProp('height', tmp));
+                tmp = origin.height + rect[dir][3] * delta.y;
+                $dom_css('height', me._validScaledProp('height', tmp));
             }
         },
         _validScaledProp: function (prop, value) {
@@ -8975,8 +8976,8 @@
             me.data('$scaleTarget', $obj);
             me.root().css({
                 position: 'absolute',
-                width: $obj.width(),
-                height: $obj.height(),
+                width: $obj.width() + parseInt($wrap.css('border-left-width')),
+                height: $obj.height() + parseInt($wrap.css('border-top-width')),
                 left: imgPos.left - posObj.left - parseInt($wrap.css('border-left-width')) - parseInt($root.css('border-left-width')),
                 top: imgPos.top - posObj.top - parseInt($wrap.css('border-top-width')) - parseInt($root.css('border-top-width'))
             });
