@@ -224,7 +224,7 @@ function main(params) {
         },
         preview() {
             var data = this.getData();
-            window.open("/preview.jsp", "preview");
+            window.open("preview.jsp", "preview");
             window.onmessage = _ => _.source.postMessage(data);
         },
     }).$scope;
