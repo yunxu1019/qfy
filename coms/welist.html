@@ -1,3 +1,25 @@
-<div>
+<div class="head">
     <btn ng-click=edit()>新增微页面</btn>
+</div>
+<div class="body">
+    <table>
+        <thead>
+            <tr>
+                <td ng-repeat="f in fields" _width="f.options?f.options.length*120:240"><span ng-bind=f.name></span></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="d in data.rows">
+                <td ng-repeat="f in fields">
+                    <model _data=d.doc _field=f _readonly=true></model>
+                    <a ng-repeat="o in f.options" ng-click="o.do(d.doc)" type_=o.type>
+                        <span ng-if="o.confirm===d.doc">确认</span>
+                        <span ng-bind=o.name></span>
+                        <span ng-if="o.confirm!==d.doc"  inner-text="　　"></span>
+                    </a>
+                    &nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

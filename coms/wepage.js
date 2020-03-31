@@ -25,7 +25,6 @@ function main() {
                     var page = welist();
                     care(page, (data) => {
                         var editor = weedit(data);
-                        console.log(editor);
                         remove(page);
                         var back = document.createElement("back");
                         on("remove")(back, function () {
@@ -35,7 +34,7 @@ function main() {
                         rootElements.mount(back);
                         appendChild($scope.container, editor);
                     });
-                    once('append')(page, a => cast(page, {}));
+                    // once('append')(page, a => cast(page, {}));
                     return page;
                 },
             },

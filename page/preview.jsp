@@ -26,16 +26,36 @@
     http://efront.cc
 -->
 <html lang="zh-CN">
+<!--  -->
 
 <head>
+    <script serverside>
+        new Promise(function (ok, oh) {
+            var http = require("http");
+            var id = /\:/.test(req.url) ? req.url.replace(/^[\s\S]*?:(\w*)$/, "$1") : null;
+            if (id) http.get('http://efront.cc:5989/data-qfy/' + id, res => {
+                var chunks = [];
+                res.on("data", (data) => {
+                    chunks.push(data);
+                });
+                res.on("end", () => {
+                    var data = Buffer.concat(chunks);
+                    Object.assign(context, JSON.parse(String(data)));
+                    ok();
+                });
+            });
+            else ok();
+        });
+    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width" />
     <title>清风雨商城</title>
-    <meta name="sharecontent" data-msg-img="" data-msg-title="你的标题" data-msg-content="你的简介" data-msg-callBack=""
-        data-line-img="/favicon.ico" data-line-title="你的标题" data-line-callBack="" />
+    <meta name="sharecontent" data-msg-img="<% config.imgurl %>" data-msg-title="<% config.name %>"
+        data-msg-content="<% config.desc %>" data-msg-callBack="" data-line-img="/favicon.ico"
+        data-line-title="<% config.name %>" data-line-callBack="" />
     <script deleteoncompile>
         -function (body, window) {
             body.removeChild(body.getElementsByTagName("script")[0]);
@@ -49,8 +69,21 @@
             xhr.send("step into my sight..");
         }.call(this, document.documentElement.children[0], this);
     </script>
+<script>qfydata=<% JSON.stringify(context,null,4) %>;</script>
+<style>
+    html,body{
+        position: absolute;
+        left: 0;
+        top:0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+    }
+</style>
 </head>
 
-<body scroll=no max-render=1920></body>
+<body scroll=no max-render=375 main="preview">
+</body>
 
 </html>

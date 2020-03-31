@@ -11,7 +11,14 @@ data.setConfig({
             shop: "a.curr-shop!title",
             desc: ".p-name>a>i!innerText"
         })}`
-    }
+    },
+    "http://efront.cc:5989/data-qfy/": {
+        "create": "post ",
+        "read": "get :_id",
+        "query": "get _all_docs?include_docs=true&limit=501#",
+        "update": "put :_id",
+        "delete": "delete :_id",
+    },
 });
 on("dragover")(window, e => e.preventDefault());
 var main = wepage;
