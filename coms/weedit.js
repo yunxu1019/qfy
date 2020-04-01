@@ -215,8 +215,7 @@ function main(params) {
             var d = this.getData();
             var r = data.from(params._rev ? "update" : "create", d);
             r.loading_promise.then(function () {
-                if (!r.is_errored)
-                    history.back();
+                history.back();
             });
         },
         cancel() {

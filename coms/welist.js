@@ -49,26 +49,31 @@ function main() {
                     {
                         name: "删除",
                         type: 'danger',
-                        width: 80,
+                        confirm: true,
                         do(d) {
-                            if (!this.confirm) {
+                            if (this.confirm !== d) {
                                 this.confirm = d;
                                 setTimeout(_ => {
-                                    this.confirm = false;
+                                    this.confirm = true;
                                     render.refresh();
                                 }, 2000);
                                 return;
                             }
-                            data.from('delete', { _id: d._id });
+                            data.from('delete', { _id: d._id, _rev: d._rev }).loading_promise.then(function () {
+                                page.refresh();
+                            });
                         },
                     },
                 ]
             },
         ],
-        data: data.from("query"),
+        data: [],
         padding,
     });
     var $scope = page.$scope;
-    console.log(page.$scope.data);
+    page.refresh = function () {
+        $scope.data = data.from("query");
+    };
+    page.refresh();
     return page;
 }

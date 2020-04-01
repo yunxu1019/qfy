@@ -30,6 +30,7 @@ function main() {
                         on("remove")(back, function () {
                             remove(editor);
                             appendChild($scope.container, page);
+                            page.refresh();
                         });
                         rootElements.mount(back);
                         appendChild($scope.container, editor);
