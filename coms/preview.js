@@ -127,8 +127,7 @@ function main() {
         document.title = config.name || config.title;
         render.refresh();
     };
-    console.log(qfydata);
-    window.opener.postMessage('needdata');
+    if (window.opener) window.opener.postMessage('needdata');
     var $scope = render(page, {
         list,
         config: qfydata.config || {},
