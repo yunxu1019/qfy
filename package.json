@@ -1,0 +1,12 @@
+{
+  "name": "qfy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "efront live",
+    "build": "efront build"
+  },
+  "author": "",
+  "license": "ISC"
+}
