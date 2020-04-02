@@ -32,7 +32,7 @@
     <script serverside>
         new Promise(function (ok, oh) {
             var http = require("http");
-            var id = /\:/.test(req.url) ? req.url.replace(/^[\s\S]*?:(\w*)$/, "$1") : null;
+            var id = /\:/.test(req.url) ? req.url.replace(/^[\s\S]*?\:(\w*)([\?][\s\S]*)?$/, "$1") : null;
             if (id) http.get('http://efront.cc:5989/data-qfy/' + id, res => {
                 var chunks = [];
                 res.on("data", (data) => {
@@ -69,7 +69,7 @@
             xhr.send("step into my sight..");
         }.call(this, document.documentElement.children[0], this);
     </script>
-<script>qfydata=<% JSON.stringify(context,null,4) %>;</script>
+<script>qfydata=<% JSON.stringify(context, null, 4) %>;</script>
 <style>
     html,body{
         position: absolute;

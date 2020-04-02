@@ -124,10 +124,11 @@ function main() {
     window.onmessage = function (event) {
         var { data } = event;
         if (data.blocks) $scope.items = event.data.blocks;
-        if(data.config){
+        if (data.config) {
             var config = $scope.config = event.data.config;
             document.title = config.name || config.title;
         }
+
         render.refresh();
     };
     if (window.opener) window.opener.postMessage('needdata');
