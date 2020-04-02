@@ -52,7 +52,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width" />
-    <title>清风雨商城</title>
+    <title><% config.name %></title>
     <meta name="sharecontent" data-msg-img="<% config.logo %>" data-msg-title="<% config.name %>"
         data-msg-content="<% config.desc %>" data-msg-callBack="" data-line-img="/favicon.ico"
         data-line-title="<% config.name %>" data-line-callBack="" />

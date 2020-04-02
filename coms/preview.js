@@ -113,18 +113,21 @@ var coms = [
         com: linkview,
     },
 ];
-var qfydata = window.qfydata;
 var comsMap = Object.create(null);
 coms.forEach(c => comsMap[c.id] = c);
 function main() {
+    var qfydata = window.qfydata;
     var page = document.createElement('list');
     page.innerHTML = preview;
     page.setAttribute("ng-src", "item in items");
     page.setAttribute("ng-style", "{background:config.background}");
     window.onmessage = function (event) {
-        $scope.items = event.data.blocks;
-        var config = $scope.config = event.data.config;
-        document.title = config.name || config.title;
+        var { data } = event;
+        if (data.blocks) $scope.items = event.data.blocks;
+        if(data.config){
+            var config = $scope.config = event.data.config;
+            document.title = config.name || config.title;
+        }
         render.refresh();
     };
     if (window.opener) window.opener.postMessage('needdata');
