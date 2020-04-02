@@ -23,7 +23,7 @@ var coms = [
                 images[i] = block;
                 return block;
             });
-            s.play();
+            s.go(0).play();
             return s;
         },
     },
