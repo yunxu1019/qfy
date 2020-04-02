@@ -53,7 +53,7 @@
     <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width" />
     <title>清风雨商城</title>
-    <meta name="sharecontent" data-msg-img="<% config.imgurl %>" data-msg-title="<% config.name %>"
+    <meta name="sharecontent" data-msg-img="<% config.logo %>" data-msg-title="<% config.name %>"
         data-msg-content="<% config.desc %>" data-msg-callBack="" data-line-img="/favicon.ico"
         data-line-title="<% config.name %>" data-line-callBack="" />
     <script deleteoncompile>
@@ -79,6 +79,7 @@
         bottom: 0;
         margin: 0;
         padding: 0;
+        background:<% context.background||'#fff' %>;
     }
 </style>
 </head>
