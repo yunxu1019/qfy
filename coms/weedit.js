@@ -155,7 +155,7 @@ function main(params) {
             remove(this.right.children);
             if (pg) appendChild(this.right, pg(b));
         },
-        addBlock(c) {
+        addBlock(c, index) {
             if (!c.com) {
                 alert(`${c.name}暂不可用！`);
                 return;
@@ -163,11 +163,21 @@ function main(params) {
 
             var block = extend({}, c);
             block.data = JSON.parse(JSON.stringify(c.data || {}));
-            this.blocks.push(block);
+            if (isFinite(index)) {
+                this.blocks.splice(index, 0, block);
+            } else {
+                this.blocks.push(block);
+            }
             this.active(block);
             setTimeout(function () {
                 page.querySelector(".mobile>:nth-last-child(1)").scrollIntoView();
             }, 10);
+        },
+        addDrag(event, c) {
+            autodragchildren.hook(event, (dist) => {
+                this.addBlock(c, dist);
+                render.refresh();
+            });
         },
         mobile(e) {
             autodragchildren(e, e, (src, dst) => {

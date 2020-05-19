@@ -1,11 +1,11 @@
 data.setConfig({
-    "https://search.jd.com/Search": {
-        "search": `get:.J-goods-list>ul.gl-warp>li[]            ?keyword=:keyword&enc=utf-8#${serialize({
+    "https://search.jd.com/s_new.php": {
+        "search": `cget:.J-goods-list>ul.gl-warp>li[]            ?keyword=:keyword&enc=utf-8&page=1#${serialize({
             sku: "!data-sku",
             spu: "!data-spu",
             pid: "!data-pid",
             detailurl: "a!href",
-            imgurl: "img!source-data-lazy-img",
+            imgurl: "img!src",
             price: ".p-price|innerText",
             name: ".p-name>a>em!innerText",
             shop: "a.curr-shop!title",
@@ -21,4 +21,5 @@ data.setConfig({
     },
 });
 on("dragover")(window, e => e.preventDefault());
+console.log(cross);
 var main = wepage;
