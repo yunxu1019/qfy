@@ -167,11 +167,11 @@ function main(params) {
                 this.blocks.splice(index, 0, block);
             } else {
                 this.blocks.push(block);
+                setTimeout(function () {
+                    page.querySelector(".mobile>:nth-last-child(1)").scrollIntoView();
+                }, 10);
             }
             this.active(block);
-            setTimeout(function () {
-                page.querySelector(".mobile>:nth-last-child(1)").scrollIntoView();
-            }, 10);
         },
         addDrag(event, c) {
             autodragchildren.hook(event, (dist) => {
