@@ -173,9 +173,14 @@ function main(params) {
             }
             this.active(block);
         },
-        addDrag(event, c) {
-            autodragchildren.hook(event, (dist) => {
-                this.addBlock(c, dist);
+        addDrag(event) {
+            var target = event.target;
+            while (target && !/btn/i.test(target.tagName) && target !== this) {
+                target = target.parentNode;
+            }
+            if (!target || target === this) return;
+            autodragchildren.hook(event, target, (dist) => {
+                this.addBlock(target.c, dist);
                 render.refresh();
             });
         },

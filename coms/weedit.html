@@ -8,9 +8,9 @@
         <mobile elementid="phone" allowdrop class="mobile" ng-style="{background:config.background}">
             <com ng-src=b ng-delete=remove(i) ng-repeat="(b,i) in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
         </mobile>
-        <div class="toolpad">
+        <div class="toolpad" ng-mousedown="addDrag(event)">
             <div class="head">基础组件：</div>
-            <btn type=grey ng-mousedown="addDrag(event,c)" ng-click="addBlock(c)" ng-repeat="c in coms">
+            <btn type=grey ng-click="addBlock(c)" _c=c ng-repeat="c in coms">
                 <span ng-bind="c.name"></span>
             </btn>
         </div>
