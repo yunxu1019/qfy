@@ -205,7 +205,6 @@
                 $('<iframe name="up"  style="display: none"></iframe>').insertBefore(me.dialog).on('load', function () {
                     var r = this.contentWindow.document.body.innerHTML;
                     if (r == '') return;
-                    console.log(r)
                     me.uploadComplete(r);
                     $(this).unbind('load');
                     $(this).remove();
@@ -218,10 +217,8 @@
                 modules.init(["createUploadURL", "cross"], function ([createUploadURL, cross]) {
                     var serverUrl = createUploadURL(uploadto);
                     if (!serverUrl) return;
-                    console.log(input.files, input.fileList)
                     cross("put", serverUrl).send(file).done(function () {
                         me.uploadComplete(serverUrl);
-                        console.log("done");
                     });
                 });
                 Upload.updateInput(input);

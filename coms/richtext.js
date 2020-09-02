@@ -21,7 +21,6 @@ function main(params) {
                 editor = umeditor.createEditor(elem, {});
                 onremove(elem, function () {
                     if (editor) editor.destroy();
-                    console.log("editor destroy!");
                 });
                 editor.addListener("contentChange", function () {
                     var content = editor.getContent();

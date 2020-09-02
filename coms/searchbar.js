@@ -10,6 +10,5 @@ function main(params) {
         input,
         data
     });
-    console.log(data);
     return page;
 }

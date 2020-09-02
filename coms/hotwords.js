@@ -14,6 +14,5 @@ function main({ data, field }) {
             autodragchildren(e, e);
         },
     });
-    console.log(hotwords);
     return com;
 }

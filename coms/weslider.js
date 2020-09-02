@@ -24,7 +24,6 @@ function main(params) {
         },
         addImage() {
             this.images.push({});
-            console.log(this.images);
         }
     });
     return page;

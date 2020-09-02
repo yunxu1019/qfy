@@ -63,11 +63,7 @@ var coms = [
             elem.setAttribute("ng-src", "data.cube_data");
             if (!this.data) this.data = {};
             var data = this.data;
-            render(elem, {
-                grid,
-                data
-            });
-            care(elem, (a) => {
+            care(elem, lazy((a) => {
                 var inc = 0;
                 elem.forEachCell((point) => {
                     var { target } = point;
@@ -78,8 +74,11 @@ var coms = [
                         image: imgs[inc]
                     });
                     inc++;
-                    console.log(target);
                 });
+            }));
+            render(elem, {
+                grid,
+                data
             });
             return elem;
 

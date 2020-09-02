@@ -5,7 +5,7 @@
     <table>
         <thead>
             <tr>
-                <td ng-repeat="(f,i) in fields" _width="i+1===fields.length?'auto':200"><span ng-bind=f.name></span></td>
+                <td ng-repeat="(f,i) in fields" _width="f.width?f.width:'200'"><span ng-bind=f.name></span></td>
             </tr>
         </thead>
         <tbody>

@@ -3,7 +3,6 @@ function main(params) {
     if (!params.data) {
         params.data = [];
     }
-    console.log(params)
     var data = params.data;
     page.innerHTML = navbar;
     render(page, {

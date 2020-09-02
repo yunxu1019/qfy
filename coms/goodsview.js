@@ -11,6 +11,5 @@ function main(params) {
         a:button,
         list: lattice
     });
-    console.log(params,data);
     return elem;
 }

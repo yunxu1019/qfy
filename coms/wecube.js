@@ -12,7 +12,6 @@ function main(params) {
         wepic,
         data: data,
         setImage(url){
-            console.log(url);
         },
         fields: [
             {

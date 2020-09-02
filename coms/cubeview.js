@@ -5,8 +5,7 @@ function main(elem = div()) {
     var $scope = {
         data,
         grid(elem) {
-            elem = grid(elem);
-            care(elem, () => {
+            care(elem, lazy(() => {
                 var inc = 0;
                 elem.forEachCell((point) => {
                     var { target } = point;
@@ -19,7 +18,8 @@ function main(elem = div()) {
                     inc++;
                 });
                 this.setGrid(1);
-            });
+            }));
+            elem = grid(elem);
             return elem;
         },
         setGrid(item) {

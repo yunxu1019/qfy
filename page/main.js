@@ -21,5 +21,4 @@ data.setConfig({
     },
 });
 on("dragover")(window, e => e.preventDefault());
-console.log(cross);
 var main = wepage;
