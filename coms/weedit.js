@@ -242,6 +242,7 @@ function main(params) {
         },
     }).$scope;
     $scope.active();
+    onremove(page, _ => window.onmessage = null);
     // $scope.addBlock($scope.coms[8]);
     return page;
 }
