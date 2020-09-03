@@ -69,19 +69,26 @@
             xhr.send("step into my sight..");
         }.call(this, document.documentElement.children[0], this);
     </script>
-<script>qfydata=<% JSON.stringify(context, null, 4) %>;</script>
-<style>
-    html,body{
-        position: absolute;
-        left: 0;
-        top:0;
-        right: 0;
-        bottom: 0;
-        margin: 0;
-        padding: 0;
-        background:<% context.background||'#fff' %>;
-    }
-</style>
+    <script>qfydata =<% JSON.stringify(context, null, 4) %>;</script>
+    <style>
+        html,
+        body {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 0;
+            background: <% context.background||'#fff'%>;
+        }
+
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body scroll=no max-render=375 main="preview">
