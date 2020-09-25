@@ -9,7 +9,16 @@ function main({ data, field }) {
             return this.hotwords.map((_, i) => i);
         },
         btn: button,
+        button,
         padding,
+        add() {
+            this.hotwords.push('');
+            var that = this;
+            setTimeout(function () {
+                var children = that.wordlist.children;
+                children[children.length - 1].children[0].focus();
+            });
+        },
         list(e) {
             autodragchildren(e, e);
         },
