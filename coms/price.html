@@ -6,6 +6,8 @@
 </div>
 
 <div class="option">
-    <input ng-model=value[0] type=money /> <span>~</span> <input ng-model=value[1] type=money />
-    <btn ng-click=add()>确认</btn>
+    <form ng-submit="event.preventDefault(),this.children[add()].focus()">
+        <input ng-model=value[0] type=money /> <span>~</span> <input ng-model=value[1] type=money />
+        <button type="submit">确认</button>
+    </form>
 </div>
