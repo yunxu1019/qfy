@@ -123,7 +123,8 @@ var coms = [
 var comsMap = Object.create(null);
 coms.forEach(c => comsMap[c.id] = c);
 function main(params) {
-
+    params = Object.assign({}, params);
+    if (typeof params.blocks === 'string') params.blocks = JSAM.parse(params.blocks);
     var page = view();
     page.innerHTML = weedit;
     var $scope = render(page, {
@@ -222,7 +223,7 @@ function main(params) {
                 createTime: params.createTime || +new Date(),
                 updateTime: +new Date,
                 config: this.config,
-                blocks: blocks
+                blocks: JSAM.stringify(blocks)
             };
         },
         save() {

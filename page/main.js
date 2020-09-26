@@ -17,7 +17,7 @@ data.setConfig({
         "read": "get :_id",
         "query": "get _all_docs?include_docs=true&limit=501#",
         "update": "put :_id",
-        "delete": "delete :_id?_rev=:_rev",
+        "delete": "delete :_id?rev=:_rev",
     },
 });
 on("dragover")(window, e => e.preventDefault());

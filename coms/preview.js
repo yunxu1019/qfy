@@ -145,7 +145,7 @@ function main() {
                 return page;
             });
         },
-        items: qfydata.blocks || []
+        items: JSAM.parse(qfydata.blocks) || []
     }).$scope;
     appendChild(document.body, page);
     return page;

@@ -59,7 +59,7 @@ function main() {
                                 }, 2000);
                                 return;
                             }
-                            data.from('delete', { _id: d._id, _rev: d._rev }).loading_promise.then(function () {
+                            data.from('delete', { _id: d._id, rev: d._rev }).loading_promise.then(function () {
                                 page.refresh();
                             });
                         },

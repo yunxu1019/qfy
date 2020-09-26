@@ -3,12 +3,12 @@
         <block>
             <png ng-src=g.imgurl></png>
             <div class=name ng-bind="g.name"></div>
-            <div class=desc ng-if="data.content?.checked[0]" ng-bind="g.desc||g.name"></div>
+            <div class=desc ng-if="data.content?.checked[0]!==false" ng-bind="g.desc||g.name"></div>
             <div class="price">
-                <span ng-if="data.content?.checked[1]" ng-bind="g.price"></span>
-                <a ng-if="data.content?.checked[2]">购买</a>
+                <span ng-if="data.content?.checked[1]!==false" ng-bind="g.price"></span>
+                <a ng-if="data.content?.checked[2]!==false">购买</a>
             </div>
-    </block>
+        </block>
     </padding>
 </list>
 <list ng-if="data.style===1" ng-src="g in data.goods" min-width=240>
@@ -17,10 +17,10 @@
             <png class="left" ng-src=g.imgurl></png>
             <div class="right">
                 <div class=name ng-bind="g.name"></div>
-                <div class=desc ng-if="data.content?.checked[0]" ng-bind="g.desc||g.name"></div>
+                <div class=desc ng-if="data.content?.checked[0]!==false" ng-bind="g.desc||g.name"></div>
                 <div class="price">
-                    <span ng-if="data.content?.checked[1]" ng-bind="g.price"></span>
-                    <a ng-if="data.content?.checked[2]">购买</a>
+                    <span ng-if="data.content?.checked[1]!==false" ng-bind="g.price"></span>
+                    <a ng-if="data.content?.checked[2]!==false">购买</a>
                 </div>
             </div>
         </block>
