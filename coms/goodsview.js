@@ -8,7 +8,10 @@ function main(params) {
         png: img,
         padding,
         block,
-        a:button,
+        a: button,
+        open(g) {
+            return window.open(g.detailurl);
+        },
         list: lattice
     });
     return elem;

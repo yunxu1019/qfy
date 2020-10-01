@@ -6,7 +6,7 @@
             <div class=desc ng-if="data.content?.checked[0]!==false" ng-bind="g.desc||g.name"></div>
             <div class="price">
                 <span ng-if="data.content?.checked[1]!==false" ng-bind="g.price"></span>
-                <a ng-if="data.content?.checked[2]!==false">购买</a>
+                <a ng-if="data.content?.checked[2]!==false" ng-click="open(g)">购买</a>
             </div>
         </block>
     </padding>
@@ -20,7 +20,7 @@
                 <div class=desc ng-if="data.content?.checked[0]!==false" ng-bind="g.desc||g.name"></div>
                 <div class="price">
                     <span ng-if="data.content?.checked[1]!==false" ng-bind="g.price"></span>
-                    <a ng-if="data.content?.checked[2]!==false">购买</a>
+                    <a ng-if="data.content?.checked[2]!==false" ng-click="open(g)">购买</a>
                 </div>
             </div>
         </block>
