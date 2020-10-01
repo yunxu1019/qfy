@@ -5,7 +5,7 @@ data.setConfig({
             spu: "!data-spu",
             pid: "!data-pid",
             detailurl: "a!href",
-            imgurl: "img!src",
+            imgurl: "img!data-lazy-img",
             price: ".p-price|innerText",
             name: ".p-name>a>em!innerText",
             shop: "a.curr-shop!title",
