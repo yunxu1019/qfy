@@ -120,17 +120,26 @@ function main() {
     page.innerHTML = preview;
     page.setAttribute("ng-src", "item in items");
     page.setAttribute("ng-style", "{background:config.background}");
-    window.onmessage = function (event) {
-        var { data } = event;
-        if (data.blocks) $scope.items = event.data.blocks;
+    var flush = function (data) {
+        if (data.blocks) $scope.items = JSAM.parse(data.blocks);
         if (data.config) {
-            var config = $scope.config = event.data.config;
+            var config = $scope.config = data.config;
             document.title = config.name || config.title;
         }
-
         render.refresh();
+    }
+    window.onmessage = function (event) {
+        var { data } = event;
+        flush(data);
     };
+
     if (window.opener) window.opener.postMessage('needdata');
+    else if (!qfydata.config && location.hash) {
+        var hash = location.hash.slice(1);
+        serve.servp(hash).then(function (data) {
+            flush(data);
+        });
+    }
     var $scope = render(page, {
         list,
         config: qfydata.config || {},

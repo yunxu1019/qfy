@@ -129,6 +129,7 @@ function main(params) {
     page.innerHTML = weedit;
     var $scope = render(page, {
         params,
+        linkid: "",
         a: button,
         btn: button,
         config: params.config || {
@@ -238,12 +239,33 @@ function main(params) {
         },
         preview() {
             var data = this.getData();
-            window.open("preview.jsp", "preview");
+            window.open("view.jsp", "preview");
             window.onmessage = _ => _.source.postMessage(data);
         },
+        qr(e) {
+            var btn = button(e);
+            var that = this;
+
+            serve.servd(function () {
+                return that.getData();
+            }).then(function (linkid) {
+                console.log(linkid);
+                that.linkid = linkid;
+                if (!page.parentNode) {
+                    serve.kill(linkid);
+                    return;
+                }
+                var prehref = location.origin + location.pathname.replace(/\/$/, '') + "/view.jsp#" + linkid;
+                console.info('扫码链接', prehref);
+                var canvas = qrcode(prehref);
+                css(canvas, "border:20px solid #fff;outline:1px solid #2cf")
+                select(btn, canvas);
+            });
+        }
     }).$scope;
     $scope.active();
     onremove(page, _ => window.onmessage = null);
+    onremove(page, _ => serve.kill($scope.linkid));
     // $scope.addBlock($scope.coms[8]);
     return page;
 }

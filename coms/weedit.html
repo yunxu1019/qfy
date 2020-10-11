@@ -6,7 +6,8 @@
 <div class="body">
     <vbox class="left">
         <mobile elementid="phone" allowdrop class="mobile" ng-style="{background:config.background}">
-            <com ng-src=b ng-delete=remove(i) ng-repeat="(b,i) in blocks" ng-class="{activate:b===blocks.active}" ng-click="active(b)"></com>
+            <com ng-src=b ng-delete=remove(i) ng-repeat="(b,i) in blocks" ng-class="{activate:b===blocks.active}"
+                ng-click="active(b)"></com>
         </mobile>
         <div class="toolpad" ng-mousedown="addDrag(event)">
             <div class="head">基础组件：</div>
@@ -19,7 +20,8 @@
     </vbox>
 </div>
 <div class="foot">
-    <btn type=white ng-click="cancel()" >取消</btn>
+    <btn type=white ng-click="cancel()">取消</btn>
     <btn ng-click="save()">保存</btn>
     <btn ng-click=preview()>预览</btn>
+    <qr ng-click=qrcode(event)>扫码预览</qr>
 </div>
