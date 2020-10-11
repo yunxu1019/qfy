@@ -21,7 +21,7 @@ function main() {
                     e.innerHTML = `<svg style="width:16px;vertical-align:middle" data-v-79c8069a="" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="qrcode" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-qrcode fa-w-14"><path data-v-79c8069a="" fill="currentColor" d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z" class=""></path></svg>`;
                     var b = button(e, 'anchor');
                     css(b, "vertical-align:middle;line-height:16px");
-                    var e = qrcode(getPreview(data));
+                    var e = qrcode(getPreview(e.data));
                     css(e, 'position:absolute;width:200px;height:200px;')
                     select(b, e);
                     return b;
