@@ -14,7 +14,13 @@ function main() {
         table,
         fields: [
             { name: "标题", key: "config.name" },
-            { name: "创建时间", key: "createTime" },
+            {
+                name: "创建时间", key: "createTime", "type"(a) {
+                    var { data, field } = a;
+                    a.innerHTML = filterTime(new Date(data[field.key]));
+                    return a;
+                }
+            },
             {
                 name: "二维码",
                 "type"(e) {
