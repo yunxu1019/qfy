@@ -249,7 +249,6 @@ function main(params) {
             serve.servd(function () {
                 return that.getData();
             }).then(function (linkid) {
-                console.log(linkid);
                 that.linkid = linkid;
                 if (!page.parentNode) {
                     serve.kill(linkid);
