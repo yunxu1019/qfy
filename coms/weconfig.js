@@ -3,7 +3,6 @@ function main(params) {
     var data = params.data;
     var page = view();
 
-    page.draggable = false;
     page.innerHTML = weconfig;
     render(page, {
         field,

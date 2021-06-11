@@ -266,5 +266,7 @@ function main(params) {
     onremove(page, _ => window.onmessage = null);
     onremove(page, _ => serve.kill($scope.linkid));
     // $scope.addBlock($scope.coms[8]);
+    console.log(params, page)
+
     return page;
 }

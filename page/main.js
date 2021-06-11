@@ -23,3 +23,4 @@ data.setConfig({
 on("dragover")(window, e => e.preventDefault());
 css("*,::after,::before", "box-sizing:border-box");
 var main = wepage;
+console.log(wepage)
