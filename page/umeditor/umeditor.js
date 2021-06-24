@@ -1098,9 +1098,9 @@
         usemap: "useMap",
         frameborder: "frameBorder"
     } : {
-            tabindex: "tabIndex",
-            readonly: "readOnly"
-        },
+        tabindex: "tabIndex",
+        readonly: "readOnly"
+    },
         styleBlock = utils.listToMap([
             '-webkit-box', '-moz-box', 'block',
             'list-item', 'table', 'table-row-group',
@@ -9773,8 +9773,9 @@
                 return editor;
             },
             setTopEditor: function (editor) {
+                console.log("setTopEditor")
                 $.each(_editors, function (i, o) {
-                    if (editor == o) {
+                    if (editor == o && _maxZIndex > 0) {
                         editor.$container && editor.$container.css('zIndex', _maxZIndex + 1);
                     } else {
                         o.$container && o.$container.css('zIndex', o.getOpt('zIndex'));
