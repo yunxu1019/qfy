@@ -8,6 +8,5 @@
     "build": "efront build"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {}
+  "license": "ISC"
 }
