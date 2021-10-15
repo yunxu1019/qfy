@@ -63,8 +63,9 @@ var coms = [
             elem.setAttribute("ng-src", "data.cube_data");
             if (!this.data) this.data = {};
             var data = this.data;
-            care(elem, lazy((a) => {
+            care(elem, lazy(() => {
                 var inc = 0;
+                if (!data.cube) return;
                 elem.forEachCell((point) => {
                     var { target } = point;
                     target.innerHTML = `<div class="image" ng-style="{backgroundImage:'url(\\''+image.url+'\\')'}" ></div>`;

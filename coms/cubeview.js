@@ -1,11 +1,12 @@
 function main(elem = div()) {
     var { data, field } = elem;
     elem.innerHTML = cubeview;
-
+    
     var $scope = {
         data,
         grid(elem) {
             care(elem, lazy(() => {
+                if (!data.cube) return;
                 var inc = 0;
                 elem.forEachCell((point) => {
                     var { target } = point;
