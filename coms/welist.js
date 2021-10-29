@@ -2,7 +2,7 @@ function main() {
     var page = div();
     page.innerHTML = welist;
     var getPreview = function (data) {
-        return document.baseURI.replace(/[\?#][\s\S]*$/, '').replace(/[^\/]+$/, '') + `view.jsp:${data._id}`;
+        return document.baseURI.replace(/[\?#][\s\S]*$/, '').replace(/[^\/]+$/, '') + `view:${data._id}`;
     };
     render(page, {
         btn: button,

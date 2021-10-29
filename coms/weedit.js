@@ -240,7 +240,7 @@ function main(params) {
         },
         preview() {
             var data = this.getData();
-            window.open("view.jsp", "preview");
+            window.open("view", "preview");
             window.onmessage = _ => _.source.postMessage(data);
         },
         qr(e) {
@@ -255,7 +255,7 @@ function main(params) {
                     serve.kill(linkid);
                     return;
                 }
-                var prehref = location.origin + location.pathname.replace(/\/$/, '') + "/view.jsp#" + linkid;
+                var prehref = location.origin + location.pathname.replace(/\/$/, '') + "/view#" + linkid;
                 console.info('扫码链接', prehref);
                 var canvas = qrcode(prehref);
                 css(canvas, "border:20px solid #fff;outline:1px solid #2cf")
