@@ -127,7 +127,7 @@ function main(params) {
     params = Object.assign({}, params);
     if (typeof params.blocks === 'string') params.blocks = JSAM.parse(params.blocks);
     var page = view();
-    page.innerHTML = weedit;
+    page.innerHTML = template;
     var $scope = render(page, {
         params,
         linkid: "",
@@ -230,6 +230,7 @@ function main(params) {
         },
         save() {
             var d = this.getData();
+            if (!params._rev) params._id = +new Date();
             var r = data.from(params._rev ? "update" : "create", d);
             r.loading_promise.then(function () {
                 history.back();

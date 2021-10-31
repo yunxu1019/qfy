@@ -5,7 +5,8 @@
     <table>
         <thead>
             <tr>
-                <td ng-repeat="(f,i) in fields" _width="f.width?f.width:'200'"><span ng-bind=f.name></span></td>
+                <td ng-repeat="(f,i) in fields" style="min-width: 100px;" _width="f.width?f.width:'200'"><span
+                        ng-bind=f.name></span></td>
             </tr>
         </thead>
         <tbody>
@@ -15,7 +16,7 @@
                     <a ng-repeat="o in f.options" ng-click="o.do(d.doc)" type_=o.type>
                         <span ng-if="o.confirm===d.doc">确认</span>
                         <span ng-bind=o.name></span>
-                        <span ng-if="o.confirm&&o.confirm!==d.doc"  inner-text="　　"></span>
+                        <span ng-if="o.confirm&&o.confirm!==d.doc" inner-text="　　"></span>
                     </a>
                     &nbsp;
                 </td>

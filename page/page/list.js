@@ -1,6 +1,6 @@
 function main() {
     var page = div();
-    page.innerHTML = wepage;
+    page.innerHTML = template;
     var $scope = render(page, {
         title: "清风雨商城",
         list,
@@ -24,16 +24,17 @@ function main() {
                 page() {
                     var page = welist();
                     care(page, (data) => {
-                        var editor = weedit(data);
-                        remove(page);
-                        var back = document.createElement("back");
-                        on("remove")(back, function () {
-                            remove(editor);
-                            appendChild($scope.container, page);
-                            page.refresh();
-                        });
-                        rootElements.mount(back);
-                        appendChild($scope.container, editor);
+                        zimoli('/page/edit',data);
+                        // var editor = weedit(data);
+                        // remove(page);
+                        // var back = document.createElement("back");
+                        // on("remove")(back, function () {
+                        //     remove(editor);
+                        //     appendChild($scope.container, page);
+                        //     page.refresh();
+                        // });
+                        // rootElements.mount(back);
+                        // appendChild($scope.container, editor);
                     });
                     // once('append')(page, a => cast(page, {}));
                     return page;
