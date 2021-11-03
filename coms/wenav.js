@@ -22,7 +22,7 @@ function main(params) {
             return e;
         },
         add() {
-            if(this.goods.length>=5)return alert("最多添加5项")
+            if (this.goods.length >= 5) return alert("最多添加5项")
             this.goods.push({});
         },
     });

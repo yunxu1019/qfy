@@ -36,7 +36,6 @@ function main() {
                 },
             },
             {
-                width: 'auto',
                 name: "操作", options: [
                     {
                         name: "复制",
