@@ -23,7 +23,8 @@ var coms = [
                 images[i] = block;
                 return block;
             });
-            s.go(0).play();
+            s.go(0)
+            s.play();
             return s;
         },
         config: weslider,
