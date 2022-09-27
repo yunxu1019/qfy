@@ -233,7 +233,8 @@ function main(params) {
             var d = this.getData();
             if (!params._rev) params._id = +new Date();
             var r = data.from(params._rev ? "update" : "create", d);
-            r.loading_promise.then(function () {
+            return r.loading_promise.then(function () {
+                dispatch(page, 'saved');
                 history.back();
             });
         },
