@@ -1,60 +1,85 @@
 & {
     // padding: 56px 14px 14px 14px;
     position: relative;
-    height: 100%;
-    width: 100%;
+    height: 900px;
+    min-width: 970px;
 }
 
-@toolpad-height: 210px;
+@toobarwidth: 160px;
+@editerwidth: 435px;
+@marginwidth: 14px;
 
 >.body {
+    padding-left: @toobarwidth+@marginwidth;
+    padding-right: @editerwidth+@marginwidth+@marginwidth;
+    padding-top: 20px;
     background: #fff;
-    padding-left: 16px;
     height: 100%;
+    width: 100%;
     position: relative;
     white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
 
-    >vbox {
+    >.vbox {
         display: inline-block;
         white-space: normal;
         vertical-align: top;
         height: 100%;
-        width: auto;
         position: relative;
 
         &.left {
-            margin-right: 14px;
-            width: 377px;
-            border: 1.0px solid #ccc;
             overflow: hidden;
+            width: 100%;
+            margin: 0 @marginwidth;
         }
 
         &.right {
+            width: @editerwidth;
+            margin-right: -@editerwidth;
+
             >form {
-                height: 100%;
+                height: auto;
+                width: 100%;
             }
         }
     }
 
 }
 
+.mobile.dropping {
+    >com {
+        z-index: 1;
+    }
+
+    &:before {
+        border: 3px dashed #09c;
+        border-radius: 28px;
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        z-index: 0;
+        background: #09c2;
+    }
+}
+
 
 .mobile {
     display: block;
-    position: relative;
-    overflow: hidden;
-    margin-right: -100px;
+    height: 100%;
+    border: 12px solid #000;
+    border-radius: 40px;
+    padding-top: 40px;
+
 
     >com {
-        width: 375px;
+        width: 100%;
     }
-
-    height: 100%;
-    padding-bottom: @toolpad-height;
-    overflow-y: auto;
-    overflow-x: hidden;
 
     com {
         >img {
@@ -97,39 +122,38 @@
     }
 }
 
-.dropping+.toolpad {
-    height: 0;
-}
 
 .toolpad {
+    margin-left: -@toobarwidth - @marginwidth;
+    width: @toobarwidth;
     line-height: 38px;
-    height: @toolpad-height;
-    margin-top: -@toolpad-height;
     transition: .2s .5s height ease-in;
     background: #ffffff99;
     backdrop-filter: blur(20px);
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    display: inline-block;
+    height: 100%;
+    position: relative;
     z-index: 2;
+    padding: 0 16px 10px 16px;
 
     btn {
-        width: 109px;
-        height: 28px;
-        line-height: 28px;
+        padding: 6px 16px;
+        line-height: 1.5;
         box-shadow: none;
-        margin-right: 11px;
+        border-radius: 0;
+        display: block;
+        font-size: 16px;
+        text-align: left;
     }
 
     .head {
+        padding: 0 12px;
+        font-size: 14px;
         line-height: 40px;
+        color: #999;
     }
 
     border:1px solid #ccc;
-    width: auto;
-    padding: 0 0 0 12px;
 }
 
 .slider {
@@ -203,6 +227,7 @@ com.activate {
 >.foot {
     text-align: center;
 }
-btn{
+
+btn {
     display: inline-block;
 }

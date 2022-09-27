@@ -2,7 +2,7 @@ function main(params) {
     if (!params.data) params.data = {};
     var data = params.data;
     extendIfNeeded(data, {
-        background: "#fff"
+        background: "#fff3"
     });
     var page = view();
     page.innerHTML = richtext;

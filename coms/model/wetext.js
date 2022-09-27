@@ -1,11 +1,12 @@
-function main(params) {
+function main(params, config) {
     if (!params.data) params.data = {};
+    console.log(config)
     var data = params.data;
     extendIfNeeded(data, {
         text: "",
         size: 1,
         color: "#333",
-        background: "#fff",
+        background: "#fff6",
         align: "left",
     });
     var page = view();

@@ -15,12 +15,12 @@ data.setConfig({
     "http://efront.cc:5989/data-qfy/": {
         "create": "post ",
         "read": "get :_id",
-        "query": "get _all_docs?include_docs=true&limit=501#",
+        "query": "get _all_docs?include_docs=true&limit=501#=rows&total=total_rows",
         "update": "put :_id",
         "delete": "delete :_id?rev=:_rev",
     },
 });
 on("dragover")(window, e => e.preventDefault());
 css("*,::after,::before", "box-sizing:border-box");
-zimoli.switch('', null, '/page/list');
+zimoli.switch('', null, '/home/list');
 zimoli();

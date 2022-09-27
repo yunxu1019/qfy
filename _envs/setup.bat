@@ -1,0 +1,1 @@
+set coms=model,fresh,zimoli,basic

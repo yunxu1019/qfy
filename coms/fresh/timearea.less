@@ -1,0 +1,172 @@
+.battery {
+    width: 20px;
+    height: 9.6px;
+    position: relative;
+    display: inline-block;
+
+    >i {
+        display: block;
+        position: absolute;
+
+        &:nth-child(1) {
+            border-radius: 3px;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            border: 1.2px solid;
+        }
+
+        &:nth-child(2) {
+            border-radius: 2px 0 0 2px;
+            width: 12px;
+            height: 5.6px;
+            left: 2px;
+            top: 2px;
+            overflow: hidden;
+
+            &:after {
+                border-top: 6px solid;
+                content: "";
+                display: block;
+                width: 100%;
+            }
+        }
+
+        &:nth-child(3) {
+            border-radius: 0 50% 50% 0;
+            width: 1.2px;
+            height: 4px;
+            border: 2px solid;
+            right: 0;
+            top: 50%;
+            margin: -2px -2px -2px 0;
+        }
+    }
+}
+
+.signal {
+    height: 20px;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    padding-top: 5px;
+    box-sizing: border-box;
+    font-size: 0;
+
+    >i+i {
+        margin-left: 2px;
+    }
+
+    >i {
+        line-height: 20px;
+        vertical-align: top;
+        display: inline-block;
+        width: 3px;
+        overflow: hidden;
+        border-radius: 2px;
+
+        position: relative;
+
+        &:after {
+            content: "";
+            display: block;
+            border-left: 3px solid;
+            height: 100%;
+        }
+
+        &:nth-child(1) {
+
+            margin-top: 12px;
+            height: 5px;
+        }
+
+        &:nth-child(2) {
+            margin-top: 10px;
+            height: 7px;
+        }
+
+        &:nth-child(3) {
+            margin-top: 8px;
+            height: 9px;
+        }
+
+        &:nth-child(4) {
+            margin-top: 6px;
+            height: 11px;
+            opacity: .3;
+        }
+    }
+}
+
+.wifi {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+
+    >i {
+        border-radius: 50%;
+        border: 2px solid transparent;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        border-top-color: inherit;
+
+        .size(@size) {
+            width: @size*2;
+            height: @size*2;
+            margin-top: -@size;
+            margin-left: -@size;
+        }
+
+        &:nth-child(1) {
+            overflow: hidden;
+            border-width: 3px;
+            .size(3px);
+        }
+
+        &:nth-child(2) {
+            .size(7px);
+        }
+
+        &:nth-child(3) {
+            .size(11px);
+        }
+    }
+
+}
+
+& {
+    line-height: 30px;
+    padding: 0 28px;
+    z-index: 4;
+    font-size: 18px;
+    display: block;
+    position: relative;
+    margin-bottom: -48px;
+    user-select: none;
+
+    span>span {
+        margin-left: 3px;
+    }
+
+    i {
+        font-style: normal;
+    }
+
+    &:before {
+        z-index: 1;
+        background: #000;
+        border-radius: 15px;
+        width: 100px;
+        height: 30px;
+        top: 0;
+        margin: 0 -50px;
+        left: 50%;
+        content: "";
+        display: block;
+        position: absolute;
+    }
+}

@@ -1,0 +1,25 @@
+<div class="head">
+    <span -if="params._id">编辑页面</span>
+    <span -else>添加页面</span>
+</div>
+<div class="body">
+    <timearea -style="{color:color.pair(config.background)}"></timearea>
+    <ybox class="toolpad" ng-mousedown="addDrag(event)">
+        <div class="head">基础组件</div>
+        <btn type=grey ng-click="addBlock(c)" _c=c ng-repeat="c in coms">
+            <span ng-bind="c.name"></span>
+        </btn>
+    </ybox>
+    <list #mobile -src="(b,i) in blocks" elementid="phone" allowdrop class="left mobile"
+        ng-style="{background:config.background}">
+        <com -src=b ng-delete=remove(i) -class="{activate:b===blocks.active}" -click="active(b)"></com>
+    </list>
+    <ybox class="right" elementid=right>
+    </ybox>
+</div>
+<div class="foot">
+    <btn type=white ng-click="cancel()">取消</btn>
+    <btn ng-click="save()">保存</btn>
+    <btn ng-click=preview()>预览</btn>
+    <qr ng-click=qrcode(event)>扫码预览</qr>
+</div>

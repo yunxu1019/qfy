@@ -129,15 +129,16 @@ function main(params) {
     if (typeof params.blocks === 'string') params.blocks = JSAM.parse(params.blocks);
     var page = view();
     page.innerHTML = template;
-    var $scope = render(page, {
+    resize.on(page);
+    drag.on(page, page.firstChild);
+    var $scope = renderWithDefaults(page, {
         params,
         linkid: "",
-        a: button,
-        btn: button,
-        config: params.config || {
-            background: "#fff",
-            hideMenu: 1,
-        },
+        color,
+        timearea,
+        config: extendIfNeeded({}, params, {
+            background: '#fff',
+        }),
         blocks: (params.blocks || []).map(b => {
             if (!b) b = {};
             var com = comsMap[b.id];
@@ -156,7 +157,7 @@ function main(params) {
                 pg = b.config;
             }
             remove(this.right.children);
-            if (pg) appendChild(this.right, pg(b));
+            if (pg) appendChild(this.right, pg(b, this.config));
         },
         addBlock(c, index) {
             if (!c.com) {
@@ -166,14 +167,17 @@ function main(params) {
 
             var block = extend({}, c);
             block.data = JSON.parse(JSON.stringify(c.data || {}));
-            if (isFinite(index)) {
-                this.blocks.splice(index, 0, block);
-            } else {
-                this.blocks.push(block);
-                setTimeout(function () {
-                    page.querySelector(".mobile>:nth-last-child(1)").scrollIntoView();
-                }, 10);
+            if (!isFinite(index)) {
+                index = this.blocks.indexOf(this.blocks.active) + 1;
+                if (index === 0) index = this.blocks.length;
             }
+            else if (index.target) {
+                index = index.target.index || 0;
+            }
+            this.blocks.splice(index, 0, block);
+            setTimeout(function () {
+                page.querySelector(`.mobile>com.activate`).scrollIntoViewIfNeeded();
+            }, 100);
             this.active(block);
         },
         addDrag(event) {
@@ -186,13 +190,6 @@ function main(params) {
                 this.addBlock(target.c, dist);
                 render.refresh();
             });
-        },
-        mobile(e) {
-            autodragchildren(e, e, (src, dst) => {
-                var block = this.blocks.splice(src, 1);
-                this.blocks.splice(dst, 0, block[0]);
-            });
-            return e;
         },
         remove(i) {
             if (this.blocks.active === this.blocks[i]) {
@@ -220,14 +217,17 @@ function main(params) {
                     data: a.data
                 };
             });
-            return {
+            var data = {
                 _id: params._id,
                 _rev: params._rev,
                 createTime: params.createTime || +new Date(),
                 updateTime: +new Date,
-                config: this.config,
                 blocks: JSAM.stringify(blocks)
             };
+            for (var f of configFields) {
+                data[f.key] = this.config[f.key];
+            }
+            return data;
         },
         save() {
             var d = this.getData();
@@ -242,8 +242,9 @@ function main(params) {
         },
         preview() {
             var data = this.getData();
-            window.open("view", "preview");
-            window.onmessage = _ => _.source.postMessage(data);
+            mobile.open("./view", "preview");
+            // window.open("view", "preview");
+            window.onmessage = _ => console.log(_) | _.source.postMessage(data);
         },
         qr(e) {
             var btn = button(e);
@@ -266,10 +267,13 @@ function main(params) {
         }
     }).$scope;
     $scope.active();
+    autodragchildren($scope.mobile, $scope.mobile, function (src, dst) {
+        var block = $scope.blocks.splice(src, 1);
+        $scope.blocks.splice(dst, 0, block[0]);
+    });
+
     onremove(page, _ => window.onmessage = null);
     onremove(page, _ => serve.kill($scope.linkid));
     // $scope.addBlock($scope.coms[8]);
-    console.log(params, page)
-
     return page;
 }

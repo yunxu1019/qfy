@@ -117,9 +117,10 @@ var comsMap = Object.create(null);
 coms.forEach(c => comsMap[c.id] = c);
 function main() {
     var qfydata = window.qfydata;
-    var page = document.createElement('list');
+    var page = document.createElement("list");
     page.innerHTML = preview;
     page.setAttribute("ng-src", "item in items");
+    if (!window.preventFrame) css(page, "padding-top:40px");
     page.setAttribute("ng-style", "{background:config.background}");
     var flush = function (data) {
         if (data.blocks) $scope.items = JSAM.parse(data.blocks);
@@ -134,7 +135,8 @@ function main() {
         flush(data);
     };
 
-    if (window.opener) window.opener.postMessage('needdata');
+    var opener = window.opener || window.parent;
+    if (opener) opener.postMessage('needdata');
     else if (!qfydata.config && location.hash) {
         var hash = location.hash.slice(1);
         serve.servp(hash).then(function (data) {
@@ -143,7 +145,7 @@ function main() {
     }
     var $scope = render(page, {
         list,
-        config: qfydata.config || {},
+        config: qfydata.config || qfydata,
         com(elem) {
             care(elem, function (data) {
                 var com = comsMap[data.id];

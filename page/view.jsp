@@ -32,7 +32,10 @@
     <script serverside>
         new Promise(function (ok, oh) {
             var http = require("http");
-            var id = /\:/.test(req.url) ? req.url.replace(/^[\s\S]*?\:(\w*)([\?][\s\S]*)?$/, "$1") : null;
+            context.data = {};
+            context.prevent = true;
+            var id = /\:/.test(req.url) ? req.url.replace(/^[\s\S]*?\:([^\:]*)([\?][\s\S]*)?$/, "$1") : null;
+            if (/\.$/.test(id)) id = id.slice(0, id.length - 1), context.prevent = false;
             if (id) http.get('http://efront.cc:5989/data-qfy/' + id, res => {
                 var chunks = [];
                 res.on("data", (data) => {
@@ -40,7 +43,11 @@
                 });
                 res.on("end", () => {
                     var data = Buffer.concat(chunks);
-                    Object.assign(context, JSON.parse(String(data)));
+                    data = JSON.parse(String(data));
+                    context.data = data;
+                    if (data.config) context.config = data.config;
+                    else context.config = data;
+                    Object.assign(context,);
                     ok();
                 });
             });
@@ -52,7 +59,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width" />
-    <title><% config.name %></title>
+    <title>
+        <% config.name %>
+    </title>
     <meta name="sharecontent" data-msg-img="<% config.logo %>" data-msg-title="<% config.name %>"
         data-msg-content="<% config.desc %>" data-msg-callBack="" data-line-img="/favicon.ico"
         data-line-title="<% config.name %>" data-line-callBack="" />
@@ -69,7 +78,10 @@
             xhr.send("step into my sight..");
         }.call(this, document.documentElement.children[0], this);
     </script>
-    <script>qfydata =<% JSON.stringify(context, null, 4) %>;</script>
+    <script>qfydata =<% JSON.stringify(context.data, null, 4) %>;</script>
+    <script>
+        preventFrame =<% prevent %>;
+    </script>
     <style>
         html,
         body {
@@ -80,18 +92,17 @@
             bottom: 0;
             margin: 0;
             padding: 0;
-            background: <% context.background||'#fff'%>;
+            background: <% config.background||'#fff' %>;
         }
-
+        
         *,
         ::before,
         ::after {
             box-sizing: border-box;
         }
-    </style>
+        </style>
 </head>
-
-<body scroll=no max-render=375 main="preview">
+<body scroll=no max-render=800 main="preview">
 </body>
 
 </html>
