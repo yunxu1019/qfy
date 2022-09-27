@@ -1,1 +1,1 @@
-set coms=model,fresh,zimoli,basic
+set coms_path=coms,coms/model,coms/fresh,:
