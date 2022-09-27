@@ -1,8 +1,8 @@
 # 清风雨商城组件
 
-一个手机页面定制工具，没有得到需求方的认可，现将其开源。[在线预览](http://efront.cc/qfy)
+一个手机页面定制工具。[在线预览](http://efront.cc/qfy)
 
-![](data/drag.gif)
+![](data/qfy.png)
 
 ## 页面参考
 
