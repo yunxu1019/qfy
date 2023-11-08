@@ -1,7 +1,7 @@
 var fields = refilm`
-标题/name
-描述/desc
-创建时间/createTime date
+标题/name 100/text
+描述/desc 300/text
+创建时间/createTime 60/date
 二维码/_id qrcode
 `;
 var getPreview = function (data) {
