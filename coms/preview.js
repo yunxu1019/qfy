@@ -124,9 +124,11 @@ function main() {
     page.setAttribute("ng-style", "{background:config.background}");
     var flush = function (data) {
         if (data.blocks) $scope.items = JSAM.parse(data.blocks);
-        if (data.config) {
-            var config = $scope.config = data.config;
-            document.title = config.name || config.title;
+        if (data.name || data.title) {
+            document.title = data.name || data.title;
+        }
+        if (data.background) {
+            document.body.style.background = data.background;
         }
         render.refresh();
     }
@@ -136,8 +138,8 @@ function main() {
     };
 
     var opener = window.opener || window.parent;
-    if (opener) opener.postMessage('needdata');
-    else if (!qfydata.config && location.hash) {
+    if (opener !== window) opener.postMessage('needdata');
+    else if (isEmpty(qfydata) && location.hash) {
         var hash = location.hash.slice(1);
         serve.servp(hash).then(function (data) {
             flush(data);
