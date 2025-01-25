@@ -44,9 +44,12 @@ function main() {
             },
             {
                 name: "查看",
-                do(data) {
+                do(data, event) {
                     var url = getPreview(data);
-                    mobile.open(url);
+                    if (event.ctrlKey) {
+                        window.open(url);
+                    }
+                    else mobile.open(url);
                 },
             },
             {
