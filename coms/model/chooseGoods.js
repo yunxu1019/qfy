@@ -18,7 +18,7 @@ function main() {
         keyword: '',
         padding,
         goods: [],
-        png: img,
+        png: pic,
         list: lattice,
         block,
         checkbox,

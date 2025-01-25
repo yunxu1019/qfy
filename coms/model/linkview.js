@@ -5,7 +5,7 @@ function main(params) {
     page.innerHTML = linkview;
     render(page, {
         data,
-        png:img
+        png: pic
     });
     return page;
 }

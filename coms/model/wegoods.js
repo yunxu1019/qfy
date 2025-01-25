@@ -41,7 +41,7 @@ function main(params) {
             }
         ],
         goods: [],
-        png: img,
+        png: pic,
         delete: drop,
         removeGoods(g, i) {
             data.goods.splice(i, 1);

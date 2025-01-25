@@ -5,7 +5,7 @@ function main(params) {
     elem.innerHTML = goodsview;
     render(elem, {
         data,
-        png: img,
+        png: pic,
         padding,
         block,
         a: button,

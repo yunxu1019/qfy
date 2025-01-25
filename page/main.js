@@ -23,4 +23,5 @@ data.setConfig({
 on("dragover")(window, e => e.preventDefault());
 css("*,::after,::before", "box-sizing:border-box");
 zimoli.switch('', null, '/home/list');
+console.log('zim,oli')
 zimoli();
