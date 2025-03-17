@@ -20,6 +20,7 @@ function main(params) {
         padding,
         block,
         remove(i) {
+            console.log(i);
             this.images.splice(i, 1);
         },
         addImage() {

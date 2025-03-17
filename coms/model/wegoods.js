@@ -28,6 +28,7 @@ function main(params) {
             },
             {
                 name: "　　　　",
+                colon: false,
                 key: "mode",
                 options: ["样式1", "样式2"],
                 type: "radio"

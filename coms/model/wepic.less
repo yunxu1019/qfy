@@ -10,41 +10,28 @@ select {
 
 & {
     display: block;
-    
-    >* {
-        >before {
-            display: block;
-            content: "";
-            position: absolute;
-            background: #fff;
-            border: 1px dashed #999;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
+    padding: 0 0 0 86px;
+    width: 100%;
+
+}
+>div {
+    display: inline-block;
+}
+
+>.head {
+    padding: 16px 6px 0 0;
+    margin-left: -86px;
+}
+
+>.body {
+    width: 100%;
+
+    .head {
+        padding-left: 0;
     }
 
-    >.body {
-        >before {
-            border-radius: 0 3px 3px 0;
-            border-left: none;
-        }
-
-        .head {
-            padding-left: 0;
-        }
-
-        .body {
-            padding-right: 0;
-        }
-    }
-
-    >.head {
-        >before {
-            border-radius: 3px 0 0 3px;
-            border-right: none;
-        }
+    .body {
+        padding-right: 0;
     }
 }
 

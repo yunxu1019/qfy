@@ -1,7 +1,7 @@
 function main(elem = div()) {
     var { data, field } = elem;
     elem.innerHTML = cubeview;
-    
+
     var $scope = {
         data,
         grid(elem) {

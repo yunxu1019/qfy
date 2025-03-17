@@ -11,7 +11,8 @@ function main(params) {
         padding,
         wepic,
         data: data,
-        setImage(url){
+        grid,
+        setImage(url) {
         },
         fields: [
             {
@@ -32,7 +33,7 @@ function main(params) {
                 editor: cubelist,
             },
             {
-                name: "布局　　",
+                name: "布局",
                 options_from: 'cube_data',
                 key: "cubepart",
                 editor: cubeview

@@ -1,10 +1,8 @@
-<div>
-    <before></before>
+<div .head>
     <pic uploadto="/@/data/qfy-data/" ng-src=data.url ng-change="setData(this.value)" />
 </div>
-<div>
-    <before></before>
-    <field ng-if="hastitle!==false">
+<div .body>
+    <field ng-if="hastitle!==false" :break="100">
         <div>
             图片标题
         </div>
@@ -12,7 +10,7 @@
             <input ng-model=data.name />
         </div>
     </field>
-    <field>
+    <field :break="100">
         <div>设置链接</div>
         <div>
             <select>

@@ -14,8 +14,7 @@ function main(elem) {
         if (!$scope.hasOwnProperty("data")) {
             $scope.data = data;
             elem.innerHTML = wepic;
-            elem = field(elem);
-            render(elem, $scope);
+            render(elem.children, $scope);
         }
         $scope.data = data;
     });

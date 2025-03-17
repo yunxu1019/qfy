@@ -61,10 +61,11 @@ var coms = [
         data: {},
         com() {
             var elem = document.createElement("grid");
+            elem.patchCell = true;
             elem.setAttribute("ng-src", "data.cube_data");
             if (!this.data) this.data = {};
             var data = this.data;
-            care(elem, lazy(() => {
+            care(elem, lazy((a) => {
                 var inc = 0;
                 if (!data.cube) return;
                 elem.forEachCell((point) => {
