@@ -5,17 +5,15 @@ function main(elem) {
         field,
         input,
         select,
+        data: {},
         a: button,
         setData(value) {
             this.data.url = value;
         }
     };
+    elem.innerHTML = wepic;
+    render(elem.children, $scope);
     care(elem, function (data) {
-        if (!$scope.hasOwnProperty("data")) {
-            $scope.data = data;
-            elem.innerHTML = wepic;
-            render(elem.children, $scope);
-        }
         $scope.data = data;
     });
     return elem;
