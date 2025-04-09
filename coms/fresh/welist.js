@@ -81,7 +81,7 @@ function main() {
     })
     var page = div();
     page.innerHTML = welist;
-    renderWithDefaults(page, {
+    var $scope = {
         fields,
         edit,
         qrcode(e) {
@@ -95,8 +95,8 @@ function main() {
         },
         data: [],
         padding,
-    });
-    var $scope = page.$scope;
+    };
+    renderWithDefaults(page, $scope);
     page.refresh = async function (keep) {
         var items = data.from("query", function (d) {
             d = d.map(a => a.doc);

@@ -1,7 +1,7 @@
 function mobile() {
     var p = document.createElement("mobile");
     p.innerHTML = template;
-    render(p, {
+    var ps = {
         timearea,
         a: button,
         color,
@@ -11,19 +11,21 @@ function mobile() {
         config: {
             background: "#323634",
         },
-    });
+    };
+    render(p, ps);
     /**
      * @type {HTMLIFrameElement}
      */
     var frame = p.frame = p.lastChild;
     p.frame.onload = function () {
         var { qfydata } = frame.contentWindow;
-        p.$scope.config = extendIfNeeded({}, qfydata.config || qfydata, p.$scope.config);
+        $scoped.get(p);
+        ps.config = extendIfNeeded({}, qfydata.config || qfydata, ps.config);
         render.refresh();
         frame.contentWindow.addEventListener("message", function (event) {
             var data = event.data;
             if (isObject(data)) {
-                p.$scope.config = data;
+                ps.config = data;
                 render.refresh();
             }
         });

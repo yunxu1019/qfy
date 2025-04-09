@@ -9,7 +9,7 @@ function main(params) {
     });
     var page = view();
     page.innerHTML = wegoods;
-    var $scope = render(page, {
+    render(page, {
         field,
         data,
         padding,
@@ -63,7 +63,7 @@ function main(params) {
             //     });
             // });
         }
-    }).$scope;
+    });
 
     return page;
 }

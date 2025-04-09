@@ -1,7 +1,7 @@
 function main({ field, data }) {
     var elem = div();
     elem.innerHTML = cubelist;
-    var $scope = render(elem, {
+    var $scope = {
         grid,
         field,
         data,
@@ -16,7 +16,8 @@ function main({ field, data }) {
         padding,
         btn: button,
         grids: field.options,
-    }).$scope;
+    };
+    render(elem, $scope);
     elem.setValue = function (v) {
         if (v) {
             var value = $scope.grids.map(a => a.id).indexOf(v.id);

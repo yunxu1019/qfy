@@ -13,7 +13,7 @@ function main() {
         });
         return goods;
     };
-    var $scope = render(page, {
+    var $scope = {
         input,
         keyword: '',
         padding,
@@ -46,7 +46,8 @@ function main() {
                 keyword: keyword
             }, buildGoods, timeout);
         }
-    }).$scope;
+    };
+    render(page, $scope);
     page.setChecked = function (checked) {
         $scope.checked = checked;
         $scope.goods = buildGoods($scope.goods);

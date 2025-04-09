@@ -132,7 +132,7 @@ function main(params) {
     page.innerHTML = template;
     resize.on(page);
     drag.on(page, page.firstChild);
-    var $scope = renderWithDefaults(page, {
+    var $scope = {
         params,
         linkid: "",
         color,
@@ -267,7 +267,8 @@ function main(params) {
                 select(btn, canvas);
             });
         }
-    }).$scope;
+    };
+    renderWithDefaults(page, $scope);
     $scope.active();
     autodragchildren($scope.mobile, $scope.mobile, function (src, dst) {
         var block = $scope.blocks.splice(src, 1);

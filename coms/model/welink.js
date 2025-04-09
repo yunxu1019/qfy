@@ -38,7 +38,8 @@ var handle = {
     start(event) {
         event.preventDefault();
         event.moveLocked = true;
-        var elem = this.$scope.image;
+        var scope = $scoped.get(this);
+        var elem = scope.image;
         if (!elem.hasInstance) return;
         var dragging = elem.dragging = getResizer(event);
         var pos = getScreenPosition(elem);
@@ -58,7 +59,7 @@ var handle = {
             elem.rect = dragging.rect;
             return;
         }
-        if (!elem.$scope.drawing) return;
+        if (!$scoped.get(elem).drawing) return;
         var limit = [pos.left, pos.top, pos.right, pos.bottom];
         elem.limit = limit;
         var rect = document.createElement("div");
@@ -73,7 +74,7 @@ var handle = {
     },
     move(event) {
         event.moveLocked = true;
-        var elem = this.$scope.image;
+        var elem = $scoped.get(this).image;
         var { drawing, dragging, limit } = elem;
         if (!dragging && !drawing) return;
         var { clientX, clientY } = event;
@@ -135,12 +136,13 @@ var handle = {
         }
     },
     end(e) {
-        this.$scope.drawing = false;
-        var elem = this.$scope.image;
+        var ts = $scoped.get(this);
+        ts.drawing = false;
+        var elem = ts.image;
         elem.dragging = null;
         elem.limit = null;
         elem.drawing = null;
-        elem.$scope.updateRects();
+        $scoped.get(elem).updateRects();
         render.refresh();
     }
 };

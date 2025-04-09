@@ -145,7 +145,7 @@ function main() {
             flush(data);
         });
     }
-    var $scope = render(page, {
+    var $scope = {
         list,
         config: qfydata.config || qfydata,
         com(elem) {
@@ -160,7 +160,8 @@ function main() {
             });
         },
         items: typeof qfydata.blocks === 'string' ? JSAM.parse(qfydata.blocks) : qfydata.blocks || []
-    }).$scope;
+    };
+    render(page, $scope);
     appendChild(document.body, page);
     return page;
 }
